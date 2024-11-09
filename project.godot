@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ResourceManager="*res://scripts/utility/resourceManager.gd"
+ResourceManager="*res://scripts/utility/ResourceManager.gd"
 
 [display]
 
