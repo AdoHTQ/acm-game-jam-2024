@@ -5,10 +5,11 @@ class_name Projectile extends Area2D
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	body_entered.connect(_on_body_entered)
 
-func _init( _direction: Vector2=Vector2(0, 0), _damage: int=1) -> void:
-	direction = _direction
-	damage = _damage
+func _init() -> void:
+	direction = Vector2(0, 0)
+	damage = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,6 +19,9 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Damageable:
 		area.damage(damage)
-		#TODO: explosion animation or something
-		
+		#TODO: explosion animation or somethingbwet
 		queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	#TODO: explosion animation or something
+	queue_free()

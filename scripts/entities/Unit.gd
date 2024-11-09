@@ -6,16 +6,11 @@ class_name Unit extends CharacterBody2D
 @export var unitPosition: Vector2
 @export var destination: Vector2
 
-func _init(
-	_speedMultiplier: int=1,
-	_unitSpeed: Vector2=Vector2(0, 0),
-	_unitPosition: Vector2=Vector2(0, 0),
-	_destination: Vector2=Vector2(0, 0)
-) -> void:
-	speedMultiplier = _speedMultiplier
-	unitSpeed = _unitSpeed
-	unitPosition = _unitPosition
-	destination = _destination
+func _init() -> void:
+	speedMultiplier = 1
+	unitSpeed = Vector2(0, 0)
+	unitPosition = Vector2(0, 0)
+	destination = Vector2(0, 0)
 
 func _physics_process(delta: float) -> void:
 	

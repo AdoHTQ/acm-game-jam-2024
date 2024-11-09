@@ -5,9 +5,9 @@ var timeSinceLastThrow: int
 
 @export var projectileScene: PackedScene
 
-func _init(_throwInterval: int=1) -> void:
+func _init() -> void:
 	timeSinceLastThrow = 0
-	throwInterval = _throwInterval
+	throwInterval = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
