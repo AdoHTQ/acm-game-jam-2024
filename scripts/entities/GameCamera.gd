@@ -15,13 +15,13 @@ func _process(delta: float) -> void:
 		zoomTarget *= 0.9
 	
 	if Input.is_action_pressed("pan_right"):
-		moveVector.x += 1500
+		moveVector.x += 1
 	if Input.is_action_pressed("pan_left"):
-		moveVector.x -= 1500
+		moveVector.x -= 1
 	if Input.is_action_pressed("pan_up"):
-		moveVector.y -= 1500
+		moveVector.y -= 1
 	if Input.is_action_pressed("pan_down"):
-		moveVector.y += 1500
+		moveVector.y += 1
 	offset += moveVector.normalized() * delta * 1500
 	zoom = zoom.slerp(zoomTarget,1)
 	
