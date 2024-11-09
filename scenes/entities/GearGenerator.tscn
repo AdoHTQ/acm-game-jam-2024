@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdpd2dn3lhwxl"]
+
+[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_jcgwb"]
+[ext_resource type="Script" path="res://scripts/entities/GearGenerator.gd" id="2_626rs"]
+
+[node name="BonesGenerator" type="Sprite2D"]
+texture = ExtResource("1_jcgwb")
+script = ExtResource("2_626rs")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
