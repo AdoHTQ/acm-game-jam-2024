@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 ResourceManager="*res://scripts/utility/resourceManager.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="game-jam"
