@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmmo5qovn0gj4"]
+
+[ext_resource type="Texture2D" uid="uid://ckrmq3f4iiodo" path="res://assets/textures/ground.png" id="1_7v5nv"]
+[ext_resource type="PackedScene" uid="uid://fjyfhauwk0jy" path="res://scenes/entities/Hero.tscn" id="2_0inr3"]
+
+[node name="Factory" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7v5nv")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.422883, 0.422883, 0.422883, 1)
+
+[node name="Hero" parent="." instance=ExtResource("2_0inr3")]
