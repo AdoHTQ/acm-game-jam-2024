@@ -5,7 +5,11 @@
 
 [node name="Factory" type="Node2D"]
 
-[node name="Map" type="Polygon2D" parent="."]
+[node name="Hero" parent="." instance=ExtResource("2_0inr3")]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Map" type="Polygon2D" parent="Level"]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(13.346, 9)
@@ -15,7 +19,5 @@ polygon = PackedVector2Array(-128, 128, -128, -128, 128, -128, 128, 128)
 uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
 polygons = [PackedInt32Array(0, 1, 2, 3)]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="Level"]
 color = Color(0.422883, 0.422883, 0.422883, 1)
-
-[node name="Hero" parent="." instance=ExtResource("2_0inr3")]
