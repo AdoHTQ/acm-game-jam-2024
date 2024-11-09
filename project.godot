@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Resources="*res://scripts/utility/resourceManager.gd"
+ResourceManager="*res://scripts/utility/resourceManager.gd"
 
 [dotnet]
 
