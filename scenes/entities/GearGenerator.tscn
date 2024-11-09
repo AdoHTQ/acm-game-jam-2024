@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://iwngm5ls6yid"]
+[gd_scene load_steps=3 format=3 uid="uid://bdpd2dn3lhwxl"]
 
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_jcgwb"]
 [ext_resource type="Script" path="res://scripts/entities/GearGenerator.gd" id="2_626rs"]
