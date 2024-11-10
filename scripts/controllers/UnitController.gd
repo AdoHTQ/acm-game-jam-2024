@@ -26,8 +26,8 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	if (isSelecting):
 		rectToDraw = Rect2(
-			topLeftCoords - position + cam.offset - inverseOffset,
-			(get_viewport().get_mouse_position() - topLeftCoords)
+			topLeftCoords - position + cam.offset - inverseOffset / cam.zoom,
+			(get_viewport().get_mouse_position() / cam.zoom - topLeftCoords)
 		)
 	else:
 		rectToDraw = Rect2(-999999, -999999, 0, 0)
@@ -40,12 +40,12 @@ func _input(event: InputEvent) -> void:
 		# this handles selecting a new group of units
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				topLeftCoords = event.position
+				topLeftCoords = event.position / cam.zoom
 				isSelecting = true
 			else:
 				selectedUnits.clear()
-				bottomRightCoords = event.position
-				position = ((topLeftCoords + bottomRightCoords) / 2) + cam.offset - inverseOffset
+				bottomRightCoords = event.position / cam.zoom
+				position = ((topLeftCoords + bottomRightCoords) / 2 ) + cam.offset - inverseOffset / cam.zoom
 				(collisionShape.shape as RectangleShape2D).extents = (bottomRightCoords - topLeftCoords if bottomRightCoords > topLeftCoords else topLeftCoords - bottomRightCoords) / 2
 
 				isSelecting = false
