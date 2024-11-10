@@ -32,35 +32,6 @@ offset_right = -0.0400047
 offset_bottom = -0.00400162
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Units/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Control" type="Control" parent="MarginContainer/Units/HBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer/Units/HBoxContainer/MarginContainer/Control"]
-layout_mode = 2
-offset_right = 1113.0
-offset_bottom = 148.0
-
-[node name="Label" type="Label" parent="MarginContainer/Units/HBoxContainer/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
