@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://fjyfhauwk0jy"]
+[gd_scene load_steps=11 format=3 uid="uid://fjyfhauwk0jy"]
 
+[ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_sq2ro"]
 
 [sub_resource type="Gradient" id="Gradient_gp368"]
@@ -29,7 +30,12 @@ size = Vector2(400, 400)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bdwq"]
 radius = 200.0
 
-[node name="Hero" type="CharacterBody2D"]
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions")]
+script = ExtResource("1_bf824")
+directions = [NodePath("EnemyDetectors/EnemyDetector0"), NodePath("EnemyDetectors/EnemyDetector1"), NodePath("EnemyDetectors/EnemyDetector2"), NodePath("EnemyDetectors/EnemyDetector3")]
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="HeroSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.313, 0.313)
@@ -43,33 +49,39 @@ texture_scale = 10.0
 shape = SubResource("RectangleShape2D_m1n0q")
 
 [node name="EnemyDetectors" type="Node2D" parent="."]
-visible = false
 
 [node name="EnemyDetector0" type="Area2D" parent="EnemyDetectors"]
 position = Vector2(200, -200)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/EnemyDetector0"]
 shape = SubResource("RectangleShape2D_6ff2k")
 
 [node name="EnemyDetector1" type="Area2D" parent="EnemyDetectors"]
 position = Vector2(-200, -200)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/EnemyDetector1"]
 shape = SubResource("RectangleShape2D_4aehm")
 
 [node name="EnemyDetector2" type="Area2D" parent="EnemyDetectors"]
 position = Vector2(-200, 200)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/EnemyDetector2"]
 shape = SubResource("RectangleShape2D_kuxxo")
 
 [node name="EnemyDetector3" type="Area2D" parent="EnemyDetectors"]
 position = Vector2(200, 200)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/EnemyDetector3"]
 shape = SubResource("RectangleShape2D_f7ye2")
 
 [node name="CloseEnemyDetector" type="Area2D" parent="EnemyDetectors"]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/CloseEnemyDetector"]
 shape = SubResource("CircleShape2D_1bdwq")
+
+[node name="Items" type="Node" parent="."]
