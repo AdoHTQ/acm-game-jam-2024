@@ -6,6 +6,12 @@ class_name Hero extends CharacterBody2D
 @export var closeArea: Area2D
 @export var midArea: Area2D
 
+@export var damageMultiplier : float
+@export var attackSpeedMultiplier : float
+@export var moveSpeedMultiplier : float
+@export var damageTakenMultiplier : float
+@export var healthMultiplier : float
+
 var heroLevel: int = 1
 
 var moveDirection: Vector2 = Vector2.ZERO
