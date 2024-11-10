@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://djatwdxnym8uu"]
+[gd_scene load_steps=3 format=3 uid="uid://c2vljfxmnsul0"]
 
-[ext_resource type="Texture2D" uid="uid://bjyqupgf08585" path="res://assets/textures/badassknight.png" id="1_hkjtc"]
+[ext_resource type="Texture2D" uid="uid://dep4vqa5b41px" path="res://assets/textures/badassknight.png" id="1_hkjtc"]
 [ext_resource type="Script" path="res://scripts/ui/PlayButton.gd" id="2_44383"]
 
 [node name="MainMenu" type="Control"]
