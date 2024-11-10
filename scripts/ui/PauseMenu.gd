@@ -15,7 +15,8 @@ func _process(delta: float) -> void:
 
 
 func _on_resume_pressed() -> void:
-	get_tree().root.paused = false
+	get_tree().paused = false
+	visible = false
 
 
 func on_settings_pressed() -> void:
