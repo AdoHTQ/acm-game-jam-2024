@@ -1,12 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=7 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
+[ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="2_7fvde"]
 [ext_resource type="PackedScene" uid="uid://fjyfhauwk0jy" path="res://scenes/entities/Hero.tscn" id="2_aum5c"]
 [ext_resource type="PackedScene" uid="uid://dkowwcaf4rkje" path="res://scenes/ui/PauseMenu.tscn" id="3_crtym"]
+[ext_resource type="PackedScene" uid="uid://bvc3ownrpacys" path="res://scenes/entities/GameCamera.tscn" id="3_m2753"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="4_clq66"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_7tate")
+
+[node name="Sprite2D" type="Polygon2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(16, 9)
+texture = ExtResource("2_7fvde")
+texture_scale = Vector2(16, 9)
+polygon = PackedVector2Array(-128, 128, -128, -128, 128, -128, 128, 128)
+uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="GameCamera" parent="." instance=ExtResource("3_m2753")]
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
 
