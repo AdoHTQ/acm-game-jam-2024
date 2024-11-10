@@ -15,7 +15,12 @@ var experienceThreshold:int = 10
 @export var attackSpeedMultiplier : float = 1.0
 @export var moveSpeedMultiplier : float = 1.0
 @export var damageTakenMultiplier : float = 1.0
-@export var healthMultiplier : float = 1.0
+
+@export var healingDelay : int = 50
+@export var maxHealth : int = 100
+@export var damageable : Damageable
+
+var healingCounter = 50
 
 var heroLevel: int = 1
 
@@ -28,10 +33,12 @@ func _ready() -> void:
 	potentialItems.append(MotorOil)
 	potentialItems.append(ItemBase)
 	%LevelCheckTimer.start()
+
 func _physics_process(delta):
-	
-	
-	
+	if damageable.health > maxHealth: damageable.health = maxHealth
+	if healingCounter <= 0: 
+		damageable.health += 1
+		healingCounter = healingDelay
 	velocity = moveDirection * moveSpeed * moveSpeedMultiplier
 	move_and_slide()
 
@@ -67,7 +74,6 @@ func move():
 
 
 func _on_level_check_timer_timeout() -> void:
-	print(experienceThreshold)
 	if ResourceManager.spendResource(ResourceManager.ResourceNames.HERO_XP, experienceThreshold):
 		levelUp.emit()
 		experienceThreshold *= 1.3

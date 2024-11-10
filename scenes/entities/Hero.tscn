@@ -127,7 +127,7 @@ _data = {
 "death": SubResource("Animation_rhvtv")
 }
 
-[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions", "closeArea", "midArea", "outerArea")]
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions", "closeArea", "midArea", "outerArea", "damageable")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bf824")
@@ -136,6 +136,7 @@ directions = [NodePath("EnemyDetectors/EnemyDetector0"), NodePath("EnemyDetector
 closeArea = NodePath("EnemyDetectors/CloseEnemyDetector")
 midArea = NodePath("EnemyDetectors/MidEnemyDetector")
 outerArea = NodePath("EnemyDetectors/OuterEnemyDetector")
+damageable = NodePath("Damageable")
 
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.1
