@@ -16,6 +16,8 @@ var heroLevel: int = 1
 
 var moveDirection: Vector2 = Vector2.ZERO
 
+signal itemCollected
+
 func _physics_process(delta):
 	velocity = moveDirection * moveSpeed
 	move_and_slide()
