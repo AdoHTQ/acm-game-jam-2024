@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://djatwdxnym8uu"]
+[gd_scene load_steps=7 format=3 uid="uid://djatwdxnym8uu"]
 
 [ext_resource type="Texture2D" uid="uid://ogj1jtyydlq6" path="res://assets/textures/badassknight.png" id="1_hkjtc"]
 [ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="1_ms8oc"]
 [ext_resource type="Texture2D" uid="uid://qivgfmfx7w45" path="res://assets/textures/Title.png" id="3_tq6dd"]
+[ext_resource type="AudioStream" uid="uid://cd5wuoa5x0hug" path="res://assets/audio/music/song18.mp3" id="4_835t0"]
 
 [sub_resource type="Gradient" id="Gradient_dxvew"]
 colors = PackedColorArray(0.99, 0.82731, 0.4158, 1, 0.3, 0.3, 0.3, 1)
@@ -137,6 +138,10 @@ texture_filter = 1
 position = Vector2(633, 177)
 scale = Vector2(4.54688, 4.54688)
 texture = ExtResource("3_tq6dd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_835t0")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_settings_pressed"]
