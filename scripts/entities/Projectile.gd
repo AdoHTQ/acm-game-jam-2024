@@ -3,6 +3,7 @@ class_name Projectile extends Area2D
 @export var direction: Vector2
 @export var damage: int
 @export var speed: float
+@export var lifetime: float
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -10,6 +11,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	lifetime -= delta
+	if lifetime < 0: queue_free()
 	position += direction * speed
 	
 func _on_area_entered(area: Area2D) -> void:
