@@ -84,6 +84,7 @@ position = Vector2(-721, 0)
 [node name="Buildings" type="Node2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control/Button" to="." method="_on_light_melee_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control/Button" to="." method="_on_light_gunner_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Button" to="." method="_on_low_building_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]
