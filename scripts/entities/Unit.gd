@@ -10,6 +10,8 @@ var hero: Hero
 
 var heroLock: bool
 
+var currentHitbox
+
 func _ready() -> void:
 	hero = get_node("/root/Factory/Hero")
 
@@ -30,3 +32,8 @@ func _physics_process(delta: float) -> void:
 	
 func lock_hero(toggle: bool) -> void:
 	heroLock = toggle
+
+func _on_damageable_body_entered(body: Node2D) -> void:
+	if not body is Unit and body.has_method("damage"):
+		body.damage(20)
+		await get_tree().create_timer(0.5).timeout

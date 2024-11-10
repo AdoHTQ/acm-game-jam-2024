@@ -2,6 +2,7 @@ extends Node2D
 
 var isPlacing : bool
 @onready var holder = preload("res://scenes/entities/GearGenerator.tscn")
+@onready var lightMelee = preload("res://scenes/entities/LightMelee.tscn")
 @onready var instance = null
 
 var lowBuildLeft : int = 10 
@@ -20,8 +21,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("confirm") and isPlacing:
 		if ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS,0):
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
-				lowBuildLeft -= 1
-				currentCounterLabel.text = str(lowBuildLeft) + " Left"
+				print("Hi!")
+				if currentCounterLabel != null:
+					lowBuildLeft -= 1
+					currentCounterLabel.text = str(lowBuildLeft) + " Left"
 				isPlacing = false
 				instance = null
 			
@@ -33,5 +36,13 @@ func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 		instance = holder.instantiate()
 		add_child(instance)
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Label2
-		print("He")
+	
+func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
+	if isPlacing == true:
+		remove_child(instance)
+		currentCounterLabel = null
+	isPlacing = true
+	instance = lightMelee.instantiate()
+	add_child(instance)
+	
 	

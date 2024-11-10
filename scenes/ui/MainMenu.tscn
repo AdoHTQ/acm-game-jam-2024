@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djatwdxnym8uu"]
 
-[ext_resource type="Texture2D" uid="uid://dinrnq7qhs444" path="res://assets/textures/badassknight.png" id="1_hkjtc"]
+[ext_resource type="Texture2D" uid="uid://ogj1jtyydlq6" path="res://assets/textures/badassknight.png" id="1_hkjtc"]
 [ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="1_ms8oc"]
 
 [sub_resource type="Gradient" id="Gradient_dxvew"]

@@ -1,26 +1,44 @@
 class_name Hero extends CharacterBody2D
 
+var potentialItems : Array[ItemBase]
+var currentItems : Array[ItemBase]
+var health : int = 100
+
 
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D
 @export var midArea: Area2D
 
-@export var damageMultiplier : float
-@export var attackSpeedMultiplier : float
-@export var moveSpeedMultiplier : float
-@export var damageTakenMultiplier : float
-@export var healthMultiplier : float
+@export var damageMultiplier : float = 1.0
+@export var attackSpeedMultiplier : float = 1.0
+@export var moveSpeedMultiplier : float = 1.0
+@export var damageTakenMultiplier : float = 1.0
+@export var healthMultiplier : float = 1.0
 
 var heroLevel: int = 1
 
 var moveDirection: Vector2 = Vector2.ZERO
 
 signal itemCollected
+signal heroDied
+
+#func _ready() -> void:
+#	
 
 func _physics_process(delta):
-	velocity = moveDirection * moveSpeed
+	
+	
+	
+	velocity = moveDirection * moveSpeed * moveSpeedMultiplier
 	move_and_slide()
+
+func damage(damage: int) -> void:
+	health -= damage
+	if health <= 0:
+		heroDied.emit()
+		# play a death animation or something idk
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func move():
