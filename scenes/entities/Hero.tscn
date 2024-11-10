@@ -1,7 +1,51 @@
-[gd_scene load_steps=11 format=3 uid="uid://fjyfhauwk0jy"]
+[gd_scene load_steps=16 format=3 uid="uid://fjyfhauwk0jy"]
 
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
-[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_sq2ro"]
+[ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="3_bxe7q"]
+[ext_resource type="Texture2D" uid="uid://xbjcdranoqee" path="res://assets/textures/hero/idle/01.png" id="3_nwfbv"]
+[ext_resource type="Texture2D" uid="uid://hau0nm1paiky" path="res://assets/textures/hero/idle/02.png" id="4_1conq"]
+[ext_resource type="Texture2D" uid="uid://cakifumjpwyvl" path="res://assets/textures/hero/idle/03.png" id="5_6sq2d"]
+[ext_resource type="Texture2D" uid="uid://b1a8dm6wuw2h4" path="res://assets/textures/hero/idle/04.png" id="6_wl7gp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4kfx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack_l",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"attack_r",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nwfbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1conq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6sq2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wl7gp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_l",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_r",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_gp368"]
 colors = PackedColorArray(0.721194, 0.546555, 0.170393, 1, 0, 0, 0, 1)
@@ -42,9 +86,12 @@ closeArea = NodePath("EnemyDetectors/CloseEnemyDetector")
 wait_time = 0.1
 autostart = true
 
-[node name="HeroSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.313, 0.313)
-texture = ExtResource("1_sq2ro")
+[node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_k4kfx")
+frame_progress = 0.734582
+speed_scale = 0.8
+script = ExtResource("3_bxe7q")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_7nf3l")
