@@ -30,7 +30,7 @@ func _physics_process(delta):
 	
 	
 	
-	velocity = moveDirection * moveSpeed
+	velocity = moveDirection * moveSpeed * moveSpeedMultiplier
 	move_and_slide()
 
 func damage(damage: int) -> void:
@@ -56,7 +56,7 @@ func move():
 		direction *= 1 if heroLevel * 10 < unitSum else -1
 		directionSum += Vector2.from_angle(direction)
 	
-	moveDirection = directionSum.normalized() * moveSpeedMultiplier
+	moveDirection = directionSum.normalized()
 	
 	if midArea.get_overlapping_bodies().size() > 0:
 		moveDirection = Vector2.ZERO
@@ -67,4 +67,4 @@ func move():
 		for unit: Unit in closeArea.get_overlapping_bodies():
 			if (unit.position.distance_squared_to(position) < minDist): minDistUnit = unit
 		
-		moveDirection = (position - minDistUnit.position).normalized() * moveSpeedMultiplier
+		moveDirection = (position - minDistUnit.position).normalized()
