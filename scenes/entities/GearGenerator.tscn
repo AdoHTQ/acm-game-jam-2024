@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/entities/GearGenerator.gd" id="2_626rs"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_8cuqm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sk08t"]
-radius = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrg1"]
+size = Vector2(120, 120)
 
 [node name="GearGenerator" type="Sprite2D"]
 texture = ExtResource("1_jcgwb")
@@ -18,6 +18,6 @@ autostart = true
 script = ExtResource("3_8cuqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
-shape = SubResource("CircleShape2D_sk08t")
+shape = SubResource("RectangleShape2D_5xrg1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

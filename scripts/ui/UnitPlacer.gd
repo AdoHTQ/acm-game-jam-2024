@@ -2,13 +2,10 @@ extends Node2D
 
 var isPlacing : bool
 @onready var holder = preload("res://scenes/entities/GearGenerator.tscn")
-@onready var instance = holder.instantiate()
+@onready var instance = null
 
-@onready var temp = holder.instantiate()
 # Called when the node enters the scene tree for the first time.
 
-func _ready() -> void:
-	add_child(instance)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#temp.position = get_global_mouse_position()
@@ -18,13 +15,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("confirm") and isPlacing:
 		if ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS,0):
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
-				var newThing = holder.instantiate()
-				newThing.set_position(get_global_mouse_position())
-				add_child(newThing)
+				isPlacing = false
+				instance = null
 			
 	
 
-
-
-func _on_button_pressed() -> void:
+func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 	isPlacing = true
+	instance = holder.instantiate()
+	add_child(instance)

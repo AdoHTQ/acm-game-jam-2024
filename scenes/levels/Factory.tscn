@@ -18,6 +18,80 @@ script = null
 
 [node name="UnitScene" parent="CanvasLayer" instance=ExtResource("4_clq66")]
 
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer5/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer6/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Units" type="Node2D" parent="."]
 
 [node name="Buildings" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control/Button" to="." method="_on_low_building_button_pressed"]
+
+[editable path="CanvasLayer/UnitScene"]
