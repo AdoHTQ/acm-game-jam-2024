@@ -550,7 +550,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jplm"]
-size = Vector2(121, 119)
+size = Vector2(150, 72)
 
 [sub_resource type="Animation" id="Animation_t4btt"]
 resource_name = "death"
@@ -600,8 +600,7 @@ speed_scale = 6.0
 script = ExtResource("124_1elq4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-0.5, -0.5)
+position = Vector2(14, 23)
 shape = SubResource("RectangleShape2D_0jplm")
 
 [node name="Damageable" type="Area2D" parent="." node_paths=PackedStringArray("animator")]
@@ -612,7 +611,6 @@ health = 15
 animator = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
-visible = false
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
 
