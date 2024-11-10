@@ -1,6 +1,6 @@
 extends Control
 
-
+var pauseScreen = preload("res://scenes/ui/SettingsMenu.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,7 +19,7 @@ func _on_resume_pressed() -> void:
 
 
 func on_settings_pressed() -> void:
-		pass # Replace with function body.
+	add_child(pauseScreen.instantiate())
 
 
 func _on_quit_menu_pressed() -> void:
