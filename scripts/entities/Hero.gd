@@ -1,6 +1,6 @@
 class_name Hero extends CharacterBody2D
 
-var potentialItems = [MotorOil, GearThrower, MagneticOrbit]
+var potentialItems = [GearThrower, MagneticOrbit, MotorOil, RepairPack, Sledgehammer, SteelPlate, Turbocharger]
 var currentItems : Array[ItemBase]
 @onready var Items = $Items
 var currentLevel = 1
