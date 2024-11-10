@@ -91,21 +91,6 @@ radius = 100.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1gx1"]
 radius = 400.0
 
-[sub_resource type="Animation" id="Animation_rhvtv"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_85lqq"]
 length = 0.001
 tracks/0/type = "value"
@@ -121,6 +106,21 @@ tracks/0/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_rhvtv"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_anpa5"]
 _data = {
 "RESET": SubResource("Animation_85lqq"),
@@ -131,7 +131,7 @@ _data = {
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bf824")
-moveSpeed = 80.0
+moveSpeed = 85.0
 directions = [NodePath("EnemyDetectors/EnemyDetector0"), NodePath("EnemyDetectors/EnemyDetector1"), NodePath("EnemyDetectors/EnemyDetector2"), NodePath("EnemyDetectors/EnemyDetector3")]
 closeArea = NodePath("EnemyDetectors/CloseEnemyDetector")
 midArea = NodePath("EnemyDetectors/MidEnemyDetector")

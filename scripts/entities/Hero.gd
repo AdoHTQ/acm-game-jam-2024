@@ -1,11 +1,11 @@
 class_name Hero extends CharacterBody2D
 
-var potentialItems = []
+var potentialItems = [MotorOil, GearThrower]
 var currentItems : Array[ItemBase]
 @onready var Items = $Items
 @export var currentExperience = 0
 var currentLevel = 1
-var experienceThreshold:int = 100
+var experienceThreshold:int = 0
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D

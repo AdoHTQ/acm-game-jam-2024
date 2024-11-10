@@ -26,3 +26,4 @@ func _process(delta: float) -> void:
 		
 		get_tree().root.add_child(instance)
 		timeSinceLastThrow = 0
+
