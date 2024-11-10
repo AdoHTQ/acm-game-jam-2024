@@ -5,8 +5,7 @@ var hero: Hero
 
 func _ready() -> void:
 	hero = get_parent().get_parent()
-	print(hero)
-	hero.moveSpeedMultiplier += 0.2
+	upgrade()
 
 func upgrade():
 	hero.moveSpeedMultiplier += 0.2
