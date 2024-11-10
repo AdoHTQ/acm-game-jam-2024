@@ -1,4 +1,5 @@
-extends CharacterBody2D
+class_name Hero extends CharacterBody2D
+
 
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []

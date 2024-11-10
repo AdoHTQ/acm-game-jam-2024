@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=8 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
+[ext_resource type="PackedScene" uid="uid://bvc3ownrpacys" path="res://scenes/entities/GameCamera.tscn" id="2_0uk4w"]
 [ext_resource type="PackedScene" uid="uid://fjyfhauwk0jy" path="res://scenes/entities/Hero.tscn" id="2_aum5c"]
 [ext_resource type="PackedScene" uid="uid://dkowwcaf4rkje" path="res://scenes/ui/PauseMenu.tscn" id="3_crtym"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="4_clq66"]
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="5_xo6l3"]
+[ext_resource type="PackedScene" uid="uid://cahmu8lq3hlnt" path="res://scenes/entities/LightMelee.tscn" id="6_qytda"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_7tate")
@@ -101,7 +103,39 @@ grow_vertical = 2
 
 [node name="Units" type="Node2D" parent="."]
 
+[node name="LightMelee" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(-660, -556)
+
+[node name="LightMelee2" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(-678, -56)
+
+[node name="LightMelee3" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(770, -208)
+
+[node name="LightMelee4" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(-56, -630)
+
+[node name="LightMelee5" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(-622, 514)
+
+[node name="LightMelee6" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(797, 82)
+
+[node name="LightMelee7" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(492, 650)
+
+[node name="LightMelee8" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(0, 784)
+
+[node name="LightMelee9" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(753, 463)
+
+[node name="LightMelee10" parent="Units" instance=ExtResource("6_qytda")]
+position = Vector2(676, -610)
+
 [node name="Buildings" type="Node2D" parent="."]
+
+[node name="GameCamera" parent="." instance=ExtResource("2_0uk4w")]
 
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control/Button" to="." method="_on_low_building_button_pressed"]
 

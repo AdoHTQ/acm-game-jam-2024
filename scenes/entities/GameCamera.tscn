@@ -1,22 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvc3ownrpacys"]
+[gd_scene load_steps=5 format=3 uid="uid://bvc3ownrpacys"]
 
 [ext_resource type="Script" path="res://scripts/entities/GameCamera.gd" id="1_fpw58"]
-[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="2_ftpcq"]
 [ext_resource type="Script" path="res://scripts/controllers/UnitController.gd" id="3_kfsxw"]
 [ext_resource type="Script" path="res://scripts/utility/RectDraw.gd" id="4_5xq76"]
-[ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="5_6w3kv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dedyb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cxmg"]
 
 [node name="GameCamera" type="Camera2D"]
 offset = Vector2(960, 540)
 script = ExtResource("1_fpw58")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(165, 162)
-texture = ExtResource("2_ftpcq")
 
 [node name="UnitController" type="Area2D" parent="." node_paths=PackedStringArray("collisionShape", "cam")]
 collision_mask = 4
@@ -30,14 +22,3 @@ shape = SubResource("RectangleShape2D_dedyb")
 [node name="RectDraw" type="Node2D" parent="UnitController" node_paths=PackedStringArray("shape")]
 script = ExtResource("4_5xq76")
 shape = NodePath("..")
-
-[node name="Unit" type="CharacterBody2D" parent="."]
-collision_layer = 4
-script = ExtResource("5_6w3kv")
-speedMultiplier = 250
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Unit"]
-shape = SubResource("RectangleShape2D_7cxmg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Unit"]
-texture = ExtResource("2_ftpcq")
