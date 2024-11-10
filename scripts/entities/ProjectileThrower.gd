@@ -13,7 +13,6 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	timeSinceLastThrow += delta
 	if timeSinceLastThrow > throwInterval:
-		#TODO: spawn a projectile towards the player here
 		var instance: Projectile = projectileScene.instantiate()
 		var hero: Node2D = get_node("/factory/Hero")
 		
