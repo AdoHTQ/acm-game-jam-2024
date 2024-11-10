@@ -3,7 +3,7 @@ class_name ProjectileThrower extends Node2D
 var timeSinceLastThrow: float
 @export var throwInterval: float
 
-@export var projectileScene: PackedScene
+var projectileScene: PackedScene = preload("res://scenes/entities/LightProjectile.tscn")
 
 var hero: Node2D 
 
@@ -15,14 +15,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	throwInterval = 1
 	timeSinceLastThrow += delta
-	print(timeSinceLastThrow)
 	if timeSinceLastThrow > throwInterval:
-		print("ablls")
-		timeSinceLastThrow = 0
-
 		var instance: Projectile = projectileScene.instantiate()
 
 		instance.direction = hero.position - global_position
 		
+		print(instance)
+		
 		get_tree().root.add_child(instance)
+		timeSinceLastThrow = 0

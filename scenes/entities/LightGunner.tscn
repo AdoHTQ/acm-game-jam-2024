@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://cweje3i7rv0rj"]
+[gd_scene load_steps=129 format=3 uid="uid://cweje3i7rv0rj"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_y27nl"]
 [ext_resource type="Texture2D" uid="uid://db4bacehxm1pf" path="res://assets/textures/units/light-gunner/walk_r/0000.png" id="2_3dden"]
@@ -697,8 +697,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jplm"]
 size = Vector2(121, 119)
 
-[sub_resource type="PackedScene" id="PackedScene_ier1h"]
-
 [node name="LightMelee" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
@@ -728,6 +726,6 @@ shape = SubResource("RectangleShape2D_0jplm")
 
 [node name="ProjectileThrower" type="Node2D" parent="."]
 script = ExtResource("126_6ukkg")
-projectileScene = SubResource("PackedScene_ier1h")
+throwInterval = 1.0
 
 [connection signal="body_entered" from="Damageable" to="." method="_on_damageable_body_entered"]
