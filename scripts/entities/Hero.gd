@@ -1,11 +1,10 @@
 class_name Hero extends CharacterBody2D
 
-var potentialItems = [MotorOil, GearThrower, MagneticOrbit]
+var potentialItems = [GearThrower, MagneticOrbit, MotorOil, RepairPack, Sledgehammer, SteelPlate, Turbocharger]
 var currentItems : Array[ItemBase]
 @onready var Items = $Items
-@export var currentExperience = 0
 var currentLevel = 1
-var experienceThreshold:int = 100
+var experienceThreshold:int = 10
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D
@@ -15,8 +14,12 @@ var experienceThreshold:int = 100
 @export var damageMultiplier : float = 1.0
 @export var attackSpeedMultiplier : float = 1.0
 @export var moveSpeedMultiplier : float = 1.0
-@export var damageTakenMultiplier : float = 1.0
-@export var healthMultiplier : float = 1.0
+
+@export var healingDelay : int = 50
+@export var maxHealth : int = 100
+@export var damageable : Damageable
+
+var healingCounter = 50
 
 var heroLevel: int = 1
 
@@ -29,10 +32,12 @@ func _ready() -> void:
 	potentialItems.append(MotorOil)
 	potentialItems.append(ItemBase)
 	%LevelCheckTimer.start()
+
 func _physics_process(delta):
-	
-	
-	
+	if damageable.health > maxHealth: damageable.health = maxHealth
+	if healingCounter <= 0: 
+		damageable.health += 1
+		healingCounter = healingDelay
 	velocity = moveDirection * moveSpeed * moveSpeedMultiplier
 	move_and_slide()
 
@@ -68,9 +73,8 @@ func move():
 
 
 func _on_level_check_timer_timeout() -> void:
-	if currentExperience >= experienceThreshold:
+	if ResourceManager.spendResource(ResourceManager.ResourceNames.HERO_XP, experienceThreshold):
 		levelUp.emit()
-		currentExperience -= experienceThreshold
 		experienceThreshold *= 1.3
 		currentLevel += 1
 		var temp = potentialItems[randi_range(0, potentialItems.size()-1)]

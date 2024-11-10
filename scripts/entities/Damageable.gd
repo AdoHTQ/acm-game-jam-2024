@@ -8,6 +8,6 @@ func damage(damage: int) -> void:
 	#health = health if health >= 0 else 0
 	
 	if health <= 0: 
-		if get_parent() is Unit: (get_node("Factory/Hero") as Hero).currentExperience += 10
+		if get_parent() is Unit: ResourceManager.addResource(ResourceManager.ResourceNames.HERO_XP, 10)
 		if animator == null: return
 		animator.play("death")

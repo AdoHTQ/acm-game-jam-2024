@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	rotate(0.04)
 
 func upgrade():
-	get_tree().create_timer(1.).timeout.connect(attack)
+	get_tree().create_timer(1. / hero.attackSpeedMultiplier).timeout.connect(attack)
 
 
 func attack():
@@ -23,4 +23,4 @@ func attack():
 	instance.damage *= hero.damageMultiplier
 	add_child(instance)
 	
-	get_tree().create_timer(1.).timeout.connect(attack)
+	get_tree().create_timer(1. / hero.attackSpeedMultiplier).timeout.connect(attack)
