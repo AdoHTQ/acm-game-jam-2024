@@ -4,6 +4,7 @@ class_name UnitController extends Area2D
 @export var cam: Camera2D
 
 var hero: Hero
+var unitPlacer: UnitPlacer
 
 var inverseOffset: Vector2
 
@@ -22,12 +23,16 @@ func _ready() -> void:
 	inverseOffset = Vector2(cam.offset.x, cam.offset.y)
 	body_shape_entered.connect(_body_shape_entered)
 	hero = get_node("/root/Factory/Hero")
+	unitPlacer = get_node("/root/Factory")
+
+	# start the player with 10 gears, enough to make a generator	
+	ResourceManager.addResource(ResourceManager.ResourceNames.GEARS, 10)
 
 func _init() -> void:
 	topLeftCoords = Vector2(0, 0)
 	bottomRightCoords = Vector2(0, 0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(delta: float) -> void:
 	if (isSelecting):
 		rectToDraw = Rect2(
@@ -58,7 +63,7 @@ func _input(event: InputEvent) -> void:
 		# this handles selecting a new group of units
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			# the press down, keep track of first corner
-			if event.pressed:
+			if event.pressed and not unitPlacer.isPlacing and event.position.y < 700:
 				topLeftCoords = event.position / cam.zoom
 				isSelecting = true
 			# the release, create the new rectangle and check for units inside

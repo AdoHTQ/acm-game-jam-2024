@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=12 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="2_7fvde"]
@@ -6,17 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://dkowwcaf4rkje" path="res://scenes/ui/PauseMenu.tscn" id="3_crtym"]
 [ext_resource type="PackedScene" uid="uid://bvc3ownrpacys" path="res://scenes/entities/GameCamera.tscn" id="3_m2753"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="4_clq66"]
-[ext_resource type="PackedScene" uid="uid://cahmu8lq3hlnt" path="res://scenes/entities/LightMelee.tscn" id="7_0uwew"]
+[ext_resource type="PackedScene" uid="uid://d37jdbvcr33oq" path="res://scenes/ui/GearAmountDisplay.tscn" id="7_6oc8s"]
+[ext_resource type="AudioStream" uid="uid://fp48at2u4dlh" path="res://assets/audio/music/Goodnightmare.mp3" id="9_eygwx"]
+[ext_resource type="PackedScene" uid="uid://dfk3fh6av8pxs" path="res://scenes/ui/TutorialScreen.tscn" id="10_4a0ug"]
+[ext_resource type="PackedScene" uid="uid://nq64cc42gscp" path="res://scenes/ui/NofiticationPopup.tscn" id="10_4af0h"]
+[ext_resource type="PackedScene" uid="uid://bdpd2dn3lhwxl" path="res://scenes/entities/GearGenerator.tscn" id="11_5q4qr"]
 
-[node name="Factory" type="Node2D"]
+[node name="Factory" type="Node2D" node_paths=PackedStringArray("soundPlayer")]
 script = ExtResource("1_7tate")
+soundPlayer = NodePath("PlaceSound")
 
 [node name="Sprite2D" type="Polygon2D" parent="."]
 texture_filter = 1
 texture_repeat = 2
-scale = Vector2(16, 9)
+scale = Vector2(32, 18)
 texture = ExtResource("2_7fvde")
-texture_scale = Vector2(16, 9)
+texture_scale = Vector2(32, 18)
 polygon = PackedVector2Array(-128, 128, -128, -128, 128, -128, 128, 128)
 uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
 polygons = [PackedInt32Array(0, 1, 2, 3)]
@@ -25,12 +30,38 @@ polygons = [PackedInt32Array(0, 1, 2, 3)]
 scale = Vector2(0.989287, 0.987901)
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
-moveSpeed = 200.0
+position = Vector2(977, 537)
+
+[node name="PlaceSound" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UnitScene" parent="CanvasLayer" instance=ExtResource("4_clq66")]
 z_index = 2
+
+[node name="MarginContainer" parent="CanvasLayer/UnitScene" index="0"]
+anchor_top = 0.669444
+theme_override_constants/margin_right = 50
+
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control" index="1"]
+text = "Light Melee
+5 gears"
+
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control" index="1"]
+text = "Light Gunner
+8 gears"
+
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit3/Control" index="1"]
+text = "Heavy Melee
+12 gears"
+
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit4/Control" index="1"]
+text = "Heavy Gunner
+20 gears"
+
+[node name="MarginContainer2" parent="CanvasLayer/UnitScene" index="1"]
+anchor_top = 0.669444
 
 [node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control" index="0"]
 layout_mode = 1
@@ -42,6 +73,10 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control" index="1"]
+text = "Factory
+10 gears"
+
 [node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control" index="0"]
 layout_mode = 1
 anchors_preset = 15
@@ -51,6 +86,11 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control" index="1"]
+text = "Engineering
+Bay
+50 gears"
 
 [node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control" index="0"]
 layout_mode = 1
@@ -62,26 +102,51 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control" index="1"]
+text = "Radio Tower
+120 gears"
+
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_crtym")]
 visible = false
 
+[node name="GearAmountDisplay" parent="CanvasLayer" instance=ExtResource("7_6oc8s")]
+
 [node name="Units" type="Node2D" parent="."]
-
-[node name="LightMelee" parent="Units" instance=ExtResource("7_0uwew")]
-position = Vector2(-500, 500)
-speedMultiplier = 100
-
-[node name="LightMelee2" parent="Units" instance=ExtResource("7_0uwew")]
-position = Vector2(250, -500)
-speedMultiplier = 100
-
-[node name="LightMelee3" parent="Units" instance=ExtResource("7_0uwew")]
-position = Vector2(500, 250)
-speedMultiplier = 100
 
 [node name="Buildings" type="Node2D" parent="."]
 
+[node name="NotificationPopup" parent="." instance=ExtResource("10_4af0h")]
+position = Vector2i(1046, 45)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_eygwx")
+volume_db = -5.0
+autoplay = true
+bus = &"music"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TutorialScreen" parent="CanvasLayer2" instance=ExtResource("10_4a0ug")]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.525101, 0.525101, 0.525101, 1)
+
+[node name="GearGenerator" parent="." instance=ExtResource("11_5q4qr")]
+position = Vector2(10000, 0)
+enabled = true
+
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control/Button" to="." method="_on_light_melee_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control/Button" to="." method="_on_light_gunner_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit3/Control/Button" to="." method="_on_heavy_melee_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit4/Control/Button" to="." method="_on_heavy_gunner_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Button" to="." method="_on_low_building_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control/Button" to="." method="_on_med_building_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control/Button" to="." method="_on_high_building_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]

@@ -4,11 +4,15 @@ class_name Unit extends CharacterBody2D
 
 @export var speedMultiplier: int
 
-@export var destination: Vector2
+@export var audioPlayer: AudioStreamPlayer2D
+
+@export var enabled = false
 
 var hero: Hero
 
 var heroLock: bool
+
+var destination: Vector2
 
 var currentHitbox
 
@@ -16,25 +20,25 @@ func _ready() -> void:
 	hero = get_node("/root/Factory/Hero")
 
 func _init() -> void:
-	speedMultiplier = 1
 	destination = position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	if enabled:
+		if heroLock: destination = hero.position
 	
-	if heroLock: destination = hero.position
-	
-	if (abs(position - destination) > Vector2(3, 3)):
-		velocity = (destination - position).normalized() * speedMultiplier
-	else:
-		velocity = Vector2.ZERO
+		if (abs(position - destination) > Vector2(3, 3)):
+			velocity = (destination - position).normalized() * speedMultiplier
+		else:
+			velocity = Vector2.ZERO
 
-	move_and_slide()
+		move_and_slide()
 	
 func lock_hero(toggle: bool) -> void:
 	heroLock = toggle
 
 func _on_damageable_area_entered(body: Node2D) -> void:
-	if not body.get_parent() is Unit and body.has_method("damage"):
-		print("haha lol")
-		body.damage(20)
-		await get_tree().create_timer(0.5).timeout
+	if enabled:
+		audioPlayer.play()
+		if (not body.get_parent() is Unit) and body is Damageable:
+			body.damage(20)
+			await get_tree().create_timer(0.5).timeout

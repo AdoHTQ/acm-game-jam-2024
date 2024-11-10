@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://de07xf0rt232n"]
+
+[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_ysia1"]
+[ext_resource type="Script" path="res://scripts/entities/EngBay.gd" id="2_du831"]
+[ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_fpcgw"]
+[ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="4_1o5dk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrg1"]
+size = Vector2(120, 120)
+
+[node name="EngBay" type="Sprite2D"]
+texture = ExtResource("1_ysia1")
+script = ExtResource("2_du831")
+researchLength = 15
+
+[node name="Damageable" type="Area2D" parent="."]
+script = ExtResource("3_fpcgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
+shape = SubResource("RectangleShape2D_5xrg1")
+
+[node name="Cost" type="Node" parent="."]
+script = ExtResource("4_1o5dk")
+cost = 50

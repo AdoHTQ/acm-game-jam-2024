@@ -57,7 +57,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Light Melee
+"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -86,7 +87,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Light Gunner
+"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -115,7 +117,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Heavy Melee
+"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -144,7 +147,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Heavy Gunner
+"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -199,7 +203,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Factory"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -241,7 +245,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Engineering
+Bay"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -253,7 +258,7 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "10 Left"
+text = "2 Left"
 horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
@@ -283,7 +288,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Lotta Money"
+text = "Radio Tower"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -295,7 +300,7 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "10 Left"
+text = "1 Left"
 horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true

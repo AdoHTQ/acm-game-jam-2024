@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://nq64cc42gscp"]
+
+[node name="NotificationPopup" type="AcceptDialog"]
+transparent_bg = true
+title = "Not Enough Gears!"
+position = Vector2i(1500, 45)
+size = Vector2i(265, 95)
+visible = true
+transient_to_focused = true
+transparent = true
+ok_button_text = "I got it! Go away!"
+dialog_text = "You need more gears to do that!"
