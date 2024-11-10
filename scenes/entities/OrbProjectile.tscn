@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://52jlw5jdey7h"]
 
 [ext_resource type="Script" path="res://scripts/entities/Projectile.gd" id="1_fcxw2"]
-[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="2_bv5yx"]
+[ext_resource type="Texture2D" uid="uid://bwllwgn2wjg6u" path="res://assets/textures/hero/gear.png" id="2_gmf1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_owx8p"]
 
@@ -16,5 +16,5 @@ lifetime = 1.0
 shape = SubResource("CircleShape2D_owx8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_bv5yx")
+texture_filter = 1
+texture = ExtResource("2_gmf1s")

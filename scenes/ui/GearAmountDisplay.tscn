@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d37jdbvcr33oq"]
+[gd_scene load_steps=4 format=3 uid="uid://d37jdbvcr33oq"]
 
 [ext_resource type="Script" path="res://scripts/ui/GearAmountDisplay.gd" id="1_h803q"]
+[ext_resource type="FontFile" uid="uid://coy6linfsyr3u" path="res://assets/fonts/Kadwa-Regular.ttf" id="2_4x4ew"]
+[ext_resource type="Script" path="res://scenes/ui/RadioTowerTimer.gd" id="3_0d005"]
 
 [node name="GearAmountDisplay" type="Control"]
 layout_mode = 3
@@ -38,5 +40,21 @@ metadata/_edit_use_anchors_ = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="RadioTowerTimer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -373.5
+offset_right = 373.5
+offset_bottom = 204.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_4x4ew")
+theme_override_font_sizes/font_size = 101
+text = "
+"
+horizontal_alignment = 1
+script = ExtResource("3_0d005")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

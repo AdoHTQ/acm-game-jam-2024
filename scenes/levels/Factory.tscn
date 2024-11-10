@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=12 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="2_7fvde"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://fp48at2u4dlh" path="res://assets/audio/music/Goodnightmare.mp3" id="9_eygwx"]
 [ext_resource type="PackedScene" uid="uid://dfk3fh6av8pxs" path="res://scenes/ui/TutorialScreen.tscn" id="10_4a0ug"]
 [ext_resource type="PackedScene" uid="uid://nq64cc42gscp" path="res://scenes/ui/NofiticationPopup.tscn" id="10_4af0h"]
+[ext_resource type="PackedScene" uid="uid://bdpd2dn3lhwxl" path="res://scenes/entities/GearGenerator.tscn" id="11_5q4qr"]
 
 [node name="Factory" type="Node2D" node_paths=PackedStringArray("soundPlayer")]
 script = ExtResource("1_7tate")
@@ -135,6 +136,10 @@ grow_vertical = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.525101, 0.525101, 0.525101, 1)
+
+[node name="GearGenerator" parent="." instance=ExtResource("11_5q4qr")]
+position = Vector2(10000, 0)
+enabled = true
 
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control/Button" to="." method="_on_light_melee_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control/Button" to="." method="_on_light_gunner_button_pressed"]
