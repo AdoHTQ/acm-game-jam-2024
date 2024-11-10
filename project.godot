@@ -29,6 +29,10 @@ window/size/borderless=true
 
 project/assembly_name="game-jam"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 zoom_in={

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dep4vqa5b41px"
-path="res://.godot/imported/badassknight.png-de200917102db29057e6eb28098fa556.ctex"
+uid="uid://c4siqhtgmu81k"
+path="res://.godot/imported/image.png-3361237cf48386479c096539dc409ec3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/badassknight.png"
-dest_files=["res://.godot/imported/badassknight.png-de200917102db29057e6eb28098fa556.ctex"]
+source_file="res://assets/textures/units/light-melee/image.png"
+dest_files=["res://.godot/imported/image.png-3361237cf48386479c096539dc409ec3.ctex"]
 
 [params]
 

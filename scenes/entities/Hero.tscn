@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_sq2ro"]
 
-[sub_resource type="Gradient" id="Gradient_gp368"]
+[sub_resource type="Gradient" id="Gradient_yhq0p"]
 colors = PackedColorArray(0.721194, 0.546555, 0.170393, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7nf3l"]
-gradient = SubResource("Gradient_gp368")
+gradient = SubResource("Gradient_yhq0p")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 1)
@@ -28,14 +28,19 @@ size = Vector2(400, 400)
 size = Vector2(400, 400)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bdwq"]
-radius = 200.0
+radius = 50.0
 
-[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions")]
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions", "closeArea")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_bf824")
+moveSpeed = 10000.0
 directions = [NodePath("EnemyDetectors/EnemyDetector0"), NodePath("EnemyDetectors/EnemyDetector1"), NodePath("EnemyDetectors/EnemyDetector2"), NodePath("EnemyDetectors/EnemyDetector3")]
+closeArea = NodePath("EnemyDetectors/CloseEnemyDetector")
 
 [node name="MoveTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
+autostart = true
 
 [node name="HeroSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.313, 0.313)
@@ -85,3 +90,5 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_1bdwq")
 
 [node name="Items" type="Node" parent="."]
+
+[connection signal="timeout" from="MoveTimer" to="." method="move"]

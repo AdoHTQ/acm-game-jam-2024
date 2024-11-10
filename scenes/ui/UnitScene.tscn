@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://byanoedg063mw"]
+
+[node name="UnitScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.751852
+anchor_right = 0.616667
+anchor_bottom = 0.999667
+offset_bottom = 0.359985
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="Units" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Units"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00002
+anchor_bottom = 1.00003
+offset_right = -0.0400047
+offset_bottom = -0.00400162
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.616667
+anchor_top = 0.751852
+anchor_right = 1.0
+anchor_bottom = 0.999667
+offset_bottom = 0.359985
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="Units" type="Panel" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/Units"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00002
+anchor_bottom = 1.00003
+offset_right = -0.0400047
+offset_bottom = -0.00400162
+metadata/_edit_use_anchors_ = true

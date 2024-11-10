@@ -1,8 +1,16 @@
 extends CharacterBody2D
 
+@export var moveSpeed: float
 @export var directions: Array[Area2D] = []
+@export var closeArea: Area2D
 
 var heroLevel: int = 1
+
+var moveDirection: Vector2 = Vector2.ZERO
+
+func _physics_process(delta):
+	velocity = moveDirection * delta * moveSpeed
+	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func move():
@@ -14,9 +22,18 @@ func move():
 		for unit: Unit in area.get_overlapping_bodies():
 			unitSum += unit.unitPower
 		
+		if (unitSum == 0): continue
+		
 		var direction: float = (PI/4) + (PI/2) * i
-		direction *= -1 if heroLevel < unitSum else 1
+		direction *= 1 if heroLevel * 10 < unitSum else -1
 		directionSum += Vector2.from_angle(direction)
 	
+	moveDirection = directionSum.normalized()
 	
-	
+	if closeArea.get_overlapping_bodies().size() > 0:
+		var minDistUnit: Unit = closeArea.get_overlapping_bodies()[0]
+		var minDist = closeArea.get_overlapping_bodies()[0].position.distance_squared_to(position)
+		for unit: Unit in closeArea.get_overlapping_bodies():
+			if (unit.position.distance_squared_to(position) < minDist): minDistUnit = unit
+		
+		moveDirection = (position - minDistUnit.position).normalized()
