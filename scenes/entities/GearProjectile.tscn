@@ -12,6 +12,7 @@ script = ExtResource("1_8wfqi")
 direction = Vector2(1, -1)
 damage = 1
 speed = 3.0
+lifetime = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_owx8p")

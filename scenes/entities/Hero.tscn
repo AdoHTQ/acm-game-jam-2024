@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://fjyfhauwk0jy"]
+[gd_scene load_steps=28 format=3 uid="uid://fjyfhauwk0jy"]
 
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="3_bxe7q"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dld2f7wnydkhm" path="res://assets/textures/hero/walk_r/05.png" id="10_dj1bu"]
 [ext_resource type="Texture2D" uid="uid://c5ssolgf7nun0" path="res://assets/textures/hero/walk_r/06.png" id="11_jxitt"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="13_0cggu"]
-[ext_resource type="Script" path="res://scripts/entities/items/MagneticOrbit.gd" id="14_lspod"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4kfx"]
 animations = [{
@@ -219,9 +218,6 @@ animator = NodePath("../AnimationPlayer")
 shape = SubResource("RectangleShape2D_m1n0q")
 
 [node name="Items" type="Node2D" parent="."]
-
-[node name="MagneticOrbit" type="Node2D" parent="Items"]
-script = ExtResource("14_lspod")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
