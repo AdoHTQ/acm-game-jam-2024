@@ -8,6 +8,8 @@ class_name Unit extends CharacterBody2D
 
 @export var enabled = false
 
+@export var directionalSprite: DirectionalSprite
+
 var hero: Hero
 
 var heroLock: bool
@@ -38,7 +40,9 @@ func lock_hero(toggle: bool) -> void:
 
 func _on_damageable_area_entered(body: Node2D) -> void:
 	if enabled:
+		speedMultiplier = 0
 		audioPlayer.play()
+		directionalSprite.attack()
 		if (not body.get_parent() is Unit) and body is Damageable:
 			body.damage(20)
 			await get_tree().create_timer(0.5).timeout

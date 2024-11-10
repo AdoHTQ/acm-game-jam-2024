@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 						var newCopy = instance.duplicate()
 						
 						add_child(newCopy)
-						if newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower"):
+						if newCopy.get_node_or_null(newCopy.get_path() as String + "/ProjectileThrower"):
 							newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower").enabled = true
 						
 					Level.LOW:

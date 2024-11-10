@@ -2,10 +2,13 @@ class_name DirectionalSprite extends AnimatedSprite2D
 
 @export var mirrorMode: bool = false
 
+var oneshotting: bool = false
+
 func _ready() -> void:
 	play()
 
 func _process(delta: float) -> void:
+	if oneshotting: return
 	var parent: CharacterBody2D = get_parent()
 	var velocity: Vector2 = parent.velocity
 	
@@ -18,3 +21,14 @@ func _process(delta: float) -> void:
 			animation = "walk_" + ("l" if velocity.x < 0 else "r")
 		else:
 			animation = "idle"
+
+func attack():
+	var parent: CharacterBody2D = get_parent()
+	oneshot("attack_" + ("l" if parent.velocity.x < 0 else "r"))
+
+func oneshot(anim: String):
+	play(anim)
+	oneshotting = true
+
+func anim_done():
+	oneshotting = false
