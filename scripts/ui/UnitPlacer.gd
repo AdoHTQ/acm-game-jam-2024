@@ -104,6 +104,7 @@ func _on_high_building_button_pressed() -> void:
 		popup.popup()
 	
 func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
+	tmp = Level.NONE
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
@@ -112,6 +113,7 @@ func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
 	add_child(instance)
 	
 func _on_light_gunner_button_pressed() -> void:
+	tmp = Level.NONE
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
@@ -120,6 +122,7 @@ func _on_light_gunner_button_pressed() -> void:
 	add_child(instance)
 	
 func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
+	tmp = Level.NONE
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
@@ -128,6 +131,7 @@ func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
 	add_child(instance)
 	
 func _on_heavy_gunner_button_pressed() -> void:
+	tmp = Level.NONE
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
