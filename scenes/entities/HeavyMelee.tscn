@@ -464,7 +464,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("42_2ywie")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_l",
 "speed": 5.0
 }, {
@@ -592,7 +592,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("83_no60q")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_r",
 "speed": 5.0
 }, {
@@ -726,7 +726,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("126_tqmdp")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_l",
 "speed": 5.0
 }, {
@@ -860,7 +860,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("126_2i0gd")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_r",
 "speed": 5.0
 }, {
@@ -1440,7 +1440,7 @@ directionalSprite = NodePath("DirectionalSprite")
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_mqb3w")
-animation = &"walk_r"
+animation = &"die_r"
 speed_scale = 6.0
 script = ExtResource("124_juddy")
 

@@ -464,7 +464,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("94_xdwy5")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_l",
 "speed": 5.0
 }, {
@@ -902,7 +902,7 @@ directionalSprite = NodePath("DirectionalSprite")
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_chhg3")
-animation = &"attack_l"
+animation = &"die_l"
 speed_scale = 6.0
 script = ExtResource("2_um5c3")
 

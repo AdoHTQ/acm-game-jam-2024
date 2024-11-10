@@ -188,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_s8rte")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_l",
 "speed": 5.0
 }, {
@@ -256,7 +256,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("43_c2kwb")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_r",
 "speed": 5.0
 }, {
@@ -354,7 +354,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("74_kh0o7")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_l",
 "speed": 5.0
 }, {
@@ -452,7 +452,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("105_lkd37")
 }],
-"loop": true,
+"loop": false,
 "name": &"die_r",
 "speed": 5.0
 }, {
@@ -593,9 +593,7 @@ speedMultiplier = 50
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xr37f")
-animation = &"attack_r"
-frame = 18
-frame_progress = 0.0241373
+animation = &"attack_l"
 speed_scale = 6.0
 script = ExtResource("124_1elq4")
 
