@@ -102,6 +102,7 @@ autostart = true
 
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_k4kfx")
 animation = &"idle"
 script = ExtResource("3_bxe7q")
