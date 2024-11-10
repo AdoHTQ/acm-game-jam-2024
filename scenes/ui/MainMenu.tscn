@@ -142,6 +142,7 @@ texture = ExtResource("3_tq6dd")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_835t0")
 autoplay = true
+bus = &"music"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_settings_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://cahmu8lq3hlnt"]
+[gd_scene load_steps=134 format=3 uid="uid://cahmu8lq3hlnt"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_egq1o"]
 [ext_resource type="Texture2D" uid="uid://db4bacehxm1pf" path="res://assets/textures/units/light-gunner/walk_r/0000.png" id="2_jniog"]
@@ -126,6 +126,7 @@
 [ext_resource type="Texture2D" uid="uid://b7mjqttogg4hg" path="res://assets/textures/units/light-gunner/walk_l/0059.png" id="122_lcvq2"]
 [ext_resource type="Texture2D" uid="uid://dw2swpq32146f" path="res://assets/textures/units/light-gunner/walk_l/0060.png" id="123_nglto"]
 [ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="126_g0nvx"]
+[ext_resource type="AudioStream" uid="uid://5fk23ovqnfcl" path="res://assets/audio/sound/light_attack.wav" id="127_fvt0c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_202mc"]
 animations = [{
@@ -771,5 +772,9 @@ cost = 5
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_a43i4")
 texture_scale = 3.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("127_fvt0c")
+bus = &"sfx"
 
 [connection signal="area_entered" from="Damageable" to="." method="_on_damageable_area_entered"]

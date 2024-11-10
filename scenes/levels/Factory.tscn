@@ -32,6 +32,7 @@ scale = Vector2(0.989287, 0.987901)
 position = Vector2(977, 537)
 
 [node name="PlaceSound" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
