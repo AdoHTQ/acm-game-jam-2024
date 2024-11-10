@@ -20,8 +20,10 @@ func _process(delta: float) -> void:
 	if timeSinceLastThrow > throwInterval:
 		var instance: Projectile = projectileScene.instantiate()
 
-		instance.direction = (hero.position - global_position).normalized()
-		instance.position = global_position
+		instance.direction = hero.position - global_position
+		
+		print(instance)
 		
 		get_tree().root.add_child(instance)
 		timeSinceLastThrow = 0
+
