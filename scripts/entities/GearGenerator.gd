@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	ResourceManager.addResource(ResourceManager.ResourceNames.GEARS,1)
+	ResourceManager.addResource(ResourceManager.ResourceNames.GEARS,gearsPerInterval)

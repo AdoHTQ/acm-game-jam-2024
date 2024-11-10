@@ -64,5 +64,5 @@ pan_down={
 [layer_names]
 
 2d_physics/layer_1="Wall"
-2d_physics/layer_3="Player Damageables"
 2d_physics/layer_2="Hero Damageables"
+2d_physics/layer_3="Player Damageables"
