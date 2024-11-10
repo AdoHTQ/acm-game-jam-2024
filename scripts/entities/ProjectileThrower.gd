@@ -4,6 +4,7 @@ var timeSinceLastThrow: float
 @export var throwInterval: float
 @export var projectileDamage: int
 @export var enabled : bool = false
+@export var directionalSprite : DirectionalSprite
 
 var projectileScene: PackedScene = preload("res://scenes/entities/LightProjectile.tscn")
 
@@ -21,6 +22,8 @@ func _process(delta: float) -> void:
 		throwInterval = 1
 		timeSinceLastThrow += delta
 		if timeSinceLastThrow > throwInterval:
+			directionalSprite.oneshot("attack")
+			
 			var instance: Projectile = projectileScene.instantiate()
 
 			instance.direction = (hero.position - global_position).normalized()

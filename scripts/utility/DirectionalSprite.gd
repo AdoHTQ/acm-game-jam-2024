@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func oneshot(anim: String):
 	var parent: CharacterBody2D = get_parent()
-	play(anim + ("l" if parent.velocity.x < 0 else "r"))
+	play(anim + ("_l" if parent.velocity.x < 0 else "_r"))
 	oneshotting = true
 
 func anim_done():

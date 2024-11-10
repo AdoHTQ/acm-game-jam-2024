@@ -40,9 +40,12 @@ func lock_hero(toggle: bool) -> void:
 
 func _on_damageable_area_entered(body: Node2D) -> void:
 	if enabled:
-		speedMultiplier = 0
 		audioPlayer.play()
 		directionalSprite.oneshot("attack")
 		if (not body.get_parent() is Unit) and body is Damageable:
 			body.damage(20)
 			await get_tree().create_timer(0.5).timeout
+
+func die():
+	speedMultiplier = 0
+	velocity = Vector2.ZERO
