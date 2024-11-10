@@ -100,6 +100,10 @@ midArea = NodePath("EnemyDetectors/MidEnemyDetector")
 wait_time = 0.1
 autostart = true
 
+[node name="LevelCheckTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -163,3 +167,4 @@ shape = SubResource("CircleShape2D_qmn8q")
 script = ExtResource("13_o0830")
 
 [connection signal="timeout" from="MoveTimer" to="." method="move"]
+[connection signal="timeout" from="LevelCheckTimer" to="." method="_on_level_check_timer_timeout"]

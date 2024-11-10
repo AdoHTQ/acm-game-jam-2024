@@ -1,10 +1,12 @@
 class_name Hero extends CharacterBody2D
 
-var potentialItems : Array[ItemBase]
+var potentialItems = []
 var currentItems : Array[ItemBase]
 var health : int = 100
-
-
+@onready var Items = $Items
+@export var currentExperience = 0
+var currentLevel = 1
+var experienceThreshold:int = 100
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D
@@ -23,9 +25,9 @@ var moveDirection: Vector2 = Vector2.ZERO
 signal itemCollected
 signal heroDied
 
-#func _ready() -> void:
-#	
-
+func _ready() -> void:
+	potentialItems.append(MotorOil)
+	potentialItems.append(ItemBase)
 func _physics_process(delta):
 	
 	
@@ -68,3 +70,16 @@ func move():
 			if (unit.position.distance_squared_to(position) < minDist): minDistUnit = unit
 		
 		moveDirection = (position - minDistUnit.position).normalized()
+
+
+func _on_level_check_timer_timeout() -> void:
+	if currentExperience >= experienceThreshold:
+		currentExperience -= experienceThreshold
+		experienceThreshold *= 1.3
+		currentLevel += 1
+		var temp = potentialItems[randi_range(0, potentialItems.size()-1)]
+		if temp in currentItems:
+			print("Upgraded!")
+			potentialItems[currentItems.find(temp)].upgrade()
+		Items.add_child(temp.new())
+		
