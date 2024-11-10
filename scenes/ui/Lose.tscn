@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba7m1cknuxmk6"]
+
+[ext_resource type="Texture2D" uid="uid://ogj1jtyydlq6" path="res://assets/textures/badassknight.png" id="1_ihl33"]
+[ext_resource type="FontFile" uid="uid://coy6linfsyr3u" path="res://assets/fonts/Kadwa-Regular.ttf" id="2_ptvpn"]
+[ext_resource type="Script" path="res://scripts/ui/scene_button.gd" id="3_kmlgy"]
+[ext_resource type="AudioStream" uid="uid://cd5wuoa5x0hug" path="res://assets/audio/music/song18.mp3" id="4_g57va"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ihl33")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 216.0
+offset_right = 994.0
+offset_bottom = 497.0
+theme_override_colors/font_color = Color(0.753984, 0.753984, 0.753984, 1)
+theme_override_fonts/font = ExtResource("2_ptvpn")
+theme_override_font_sizes/font_size = 66
+text = "The knight came out on top!
+You lose!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 562.0
+offset_right = 836.0
+offset_bottom = 708.0
+theme_override_font_sizes/font_size = 101
+text = "Main Menu"
+script = ExtResource("3_kmlgy")
+scene = "res://scenes/ui/MainMenu.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g57va")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="press"]
