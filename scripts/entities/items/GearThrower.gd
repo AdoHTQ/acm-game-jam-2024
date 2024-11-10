@@ -10,7 +10,7 @@ func _ready() -> void:
 	upgrade()
 
 func upgrade():
-	get_tree().create_timer(1.).timeout.connect(attack)
+	get_tree().create_timer(1. / hero.attackSpeedMultiplier).timeout.connect(attack)
 
 
 func attack():
@@ -26,4 +26,4 @@ func attack():
 		instance.damage *= hero.damageMultiplier
 		get_tree().root.add_child(instance)
 	
-	get_tree().create_timer(1.).timeout.connect(attack)
+	get_tree().create_timer(1. / hero.attackSpeedMultiplier).timeout.connect(attack)

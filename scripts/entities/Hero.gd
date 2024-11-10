@@ -14,7 +14,6 @@ var experienceThreshold:int = 10
 @export var damageMultiplier : float = 1.0
 @export var attackSpeedMultiplier : float = 1.0
 @export var moveSpeedMultiplier : float = 1.0
-@export var damageTakenMultiplier : float = 1.0
 
 @export var healingDelay : int = 50
 @export var maxHealth : int = 100
