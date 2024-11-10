@@ -56,7 +56,7 @@ func move():
 		direction *= 1 if heroLevel * 10 < unitSum else -1
 		directionSum += Vector2.from_angle(direction)
 	
-	moveDirection = directionSum.normalized()
+	moveDirection = directionSum.normalized() * moveSpeedMultiplier
 	
 	if midArea.get_overlapping_bodies().size() > 0:
 		moveDirection = Vector2.ZERO
@@ -67,4 +67,4 @@ func move():
 		for unit: Unit in closeArea.get_overlapping_bodies():
 			if (unit.position.distance_squared_to(position) < minDist): minDistUnit = unit
 		
-		moveDirection = (position - minDistUnit.position).normalized()
+		moveDirection = (position - minDistUnit.position).normalized() * moveSpeedMultiplier
