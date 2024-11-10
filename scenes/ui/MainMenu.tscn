@@ -51,18 +51,21 @@ theme_override_constants/separation = 40
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="VBoxContainer"]
+z_index = 1
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 66
 text = "Play"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
+z_index = 1
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 66
 text = "Settings"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
+z_index = 1
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 66
