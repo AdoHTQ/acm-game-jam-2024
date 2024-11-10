@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=9 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="2_7fvde"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvc3ownrpacys" path="res://scenes/entities/GameCamera.tscn" id="3_m2753"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="4_clq66"]
 [ext_resource type="PackedScene" uid="uid://cahmu8lq3hlnt" path="res://scenes/entities/LightMelee.tscn" id="7_0uwew"]
+[ext_resource type="PackedScene" uid="uid://cweje3i7rv0rj" path="res://scenes/entities/LightGunner.tscn" id="8_6bqgi"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_7tate")
@@ -75,9 +76,8 @@ speedMultiplier = 100
 position = Vector2(250, -500)
 speedMultiplier = 100
 
-[node name="LightMelee3" parent="Units" instance=ExtResource("7_0uwew")]
-position = Vector2(500, 250)
-speedMultiplier = 100
+[node name="LightGunner" parent="Units" instance=ExtResource("8_6bqgi")]
+position = Vector2(-721, 0)
 
 [node name="Buildings" type="Node2D" parent="."]
 
