@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 				soundPlayer.stream = buildingPlaceSound
 				soundPlayer.play()
 				ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost)
+				instance.get_node(instance.get_path() as String + "/Damageable").enabled = true
 				match tmp:
 					Level.LOW:
 						lowBuildLeft -= 1
@@ -53,7 +54,7 @@ func _process(delta: float) -> void:
 						highBuildLeft -= 1
 						currentCounterLabel.text = str(highBuildLeft) + " Left"
 				instance.enabled = true
-				instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
+				
 				isPlacing = false
 				instance = null
 		else:
