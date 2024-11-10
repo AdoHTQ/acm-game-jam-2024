@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dfk3fh6av8pxs" path="res://scenes/ui/TutorialScreen.tscn" id="10_4a0ug"]
 [ext_resource type="PackedScene" uid="uid://nq64cc42gscp" path="res://scenes/ui/NofiticationPopup.tscn" id="10_4af0h"]
 
-[node name="Factory" type="Node2D"]
+[node name="Factory" type="Node2D" node_paths=PackedStringArray("soundPlayer")]
 script = ExtResource("1_7tate")
+soundPlayer = NodePath("PlaceSound")
 
 [node name="Sprite2D" type="Polygon2D" parent="."]
 texture_filter = 1
@@ -29,6 +30,8 @@ scale = Vector2(0.989287, 0.987901)
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
 position = Vector2(977, 537)
+
+[node name="PlaceSound" type="AudioStreamPlayer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -113,7 +116,7 @@ visible = false
 [node name="NotificationPopup" parent="." instance=ExtResource("10_4af0h")]
 position = Vector2i(1046, 45)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_eygwx")
 volume_db = -5.0
 autoplay = true

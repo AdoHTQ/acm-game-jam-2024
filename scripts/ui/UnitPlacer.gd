@@ -7,7 +7,10 @@ var isPlacing : bool
 @onready var lightGunner = preload("res://scenes/entities/LightGunner.tscn")
 @onready var heavyMelee = preload("res://scenes/entities/HeavyMelee.tscn")
 @onready var heavyGunner = preload("res://scenes/entities/HeavyGunner.tscn")
+@onready var unitPlaceSound = preload("res://assets/audio/sound/place_unit.wav")
+@onready var buildingPlaceSound = preload("res://assets/audio/sound/place_building.wav")
 @onready var instance = null
+@export var soundPlayer: AudioStreamPlayer
 enum Level {NONE,LOW,MED,HIGH}
 var engBays: Array[EngBay]
 var lowBuildLeft : int = 10 
@@ -35,6 +38,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("confirm") and isPlacing:
 		if ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost):
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
+				soundPlayer.stream = buildingPlaceSound
+				soundPlayer.play()
 				match tmp:
 					Level.LOW:
 						lowBuildLeft -= 1
