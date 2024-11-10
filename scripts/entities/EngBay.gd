@@ -1,7 +1,7 @@
 class_name EngBay extends Sprite2D
 
 @export var researchLength: int
-
+@export var enabled = false
 var doneResearch: bool=false
 
 var timeElapsed: float
@@ -13,5 +13,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	timeElapsed += delta
-	doneResearch = timeElapsed >= researchLength
+	if enabled:
+		timeElapsed += delta
+		doneResearch = timeElapsed >= researchLength

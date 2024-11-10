@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 				soundPlayer.play()
 				match tmp:
 					Level.LOW:
+						instance.enabled = true
 						lowBuildLeft -= 1
 						currentCounterLabel.text = str(lowBuildLeft) + " Left"
 					Level.MED:
