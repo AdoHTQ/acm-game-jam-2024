@@ -36,10 +36,11 @@ func _process(delta: float) -> void:
 		instance.position = get_global_mouse_position()
 	
 	if Input.is_action_just_pressed("confirm") and isPlacing:
-		if ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost):
+		if ResourceManager.resourceCounts[ResourceManager.ResourceNames.GEARS] >= instance.get_node("Cost").cost:
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
 				soundPlayer.stream = buildingPlaceSound
 				soundPlayer.play()
+				ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost)
 				match tmp:
 					Level.LOW:
 						instance.enabled = true
