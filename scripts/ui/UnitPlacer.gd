@@ -1,6 +1,11 @@
 class_name UnitPlacer extends Node2D
 
 var isPlacing : bool
+var costLowMult : float = 1 
+var costMedMult : float = 1 
+
+var currentCostMult : float = 1
+
 @onready var gearGen = preload("res://scenes/entities/GearGenerator.tscn")
 @onready var engBay = preload("res://scenes/entities/EngBay.tscn")
 @onready var radTower = preload("res://scenes/entities/RadTower.tscn")
@@ -19,6 +24,7 @@ var medBuildLeft : int = 2
 var highBuildLeft : int = 1 
 var tmp : Level = Level.NONE
 var currentCounterLabel = null # Just for making the building limited supply label work.
+var currentCostLabel = null
 
 var popup: AcceptDialog
 
@@ -37,11 +43,11 @@ func _process(delta: float) -> void:
 		instance.position = get_global_mouse_position()
 	
 	if Input.is_action_just_pressed("confirm") and isPlacing:
-		if ResourceManager.resourceCounts[ResourceManager.ResourceNames.GEARS] >= instance.get_node("Cost").cost:
+		if ResourceManager.resourceCounts[ResourceManager.ResourceNames.GEARS] >= (instance.get_node("Cost").cost * currentCostMult) as int:
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
 				soundPlayer.stream = buildingPlaceSound
 				soundPlayer.play()
-				ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost)
+				ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, (instance.get_node("Cost").cost * currentCostMult) as int)
 				instance.get_node(instance.get_path() as String + "/Damageable").enabled = true
 				instance.enabled = true
 				match tmp:
@@ -53,13 +59,18 @@ func _process(delta: float) -> void:
 							newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower").enabled = true
 						
 					Level.LOW:
+						
+						costLowMult += 0.6+ costLowMult * 0.6
 						lowBuildLeft -= 1
 						currentCounterLabel.text = str(lowBuildLeft) + " Left"
+						currentCostLabel.text = "Factory\n" + str((instance.get_node("Cost").cost * costLowMult) as int) + " gears"
 						instance = null
 						isPlacing = false
 					Level.MED:
+						costMedMult += 0.8 + costMedMult * 0.8
 						medBuildLeft -= 1
 						currentCounterLabel.text = str(medBuildLeft) + " Left"
+						currentCostLabel.text = "Engineering\nBay\n" + str((instance.get_node("Cost").cost * costLowMult) as int) + " gears"
 						engBays.append(instance)
 						instance = null
 						isPlacing = false
@@ -85,12 +96,14 @@ func _process(delta: float) -> void:
 
 func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 	if isPlacing: return
+	currentCostMult = costLowMult
 	if lowBuildLeft > 0:
 		isPlacing = true
 		instance = gearGen.instantiate()
 		add_child(instance)
 		instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Label2
+		currentCostLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Label
 		tmp = Level.LOW
 	else:
 		popup.dialog_text = "You've reached the limit of Factories!"
@@ -99,12 +112,14 @@ func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 		
 func _on_med_building_button_pressed() -> void:
 	if isPlacing: return
+	currentCostMult = costMedMult
 	if medBuildLeft > 0:
 		isPlacing = true
 		instance = engBay.instantiate()
 		add_child(instance)
 		instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control/Label2
+		currentCostLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control/Label
 		tmp = Level.MED
 	else:
 		popup.dialog_text = "You've reached the limit of Engineering Bays!"
@@ -136,7 +151,7 @@ func _on_high_building_button_pressed() -> void:
 	
 func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
 	tmp = Level.NONE
-	
+	currentCostMult = 1
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
@@ -148,6 +163,7 @@ func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
 	
 func _on_light_gunner_button_pressed() -> void:
 	tmp = Level.NONE
+	currentCostMult = 1
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
@@ -160,6 +176,7 @@ func _on_light_gunner_button_pressed() -> void:
 	
 func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
 	tmp = Level.NONE
+	currentCostMult = 1
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
@@ -170,6 +187,7 @@ func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
 	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 func _on_heavy_gunner_button_pressed() -> void:
 	tmp = Level.NONE
+	currentCostMult = 1
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
