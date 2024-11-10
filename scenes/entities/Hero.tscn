@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://fjyfhauwk0jy"]
+[gd_scene load_steps=23 format=3 uid="uid://fjyfhauwk0jy"]
 
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="3_bxe7q"]
@@ -83,13 +83,17 @@ size = Vector2(400, 400)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bdwq"]
 radius = 50.0
 
-[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions", "closeArea")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmn8q"]
+radius = 100.0
+
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions", "closeArea", "midArea")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bf824")
-moveSpeed = 10000.0
+moveSpeed = 200.0
 directions = [NodePath("EnemyDetectors/EnemyDetector0"), NodePath("EnemyDetectors/EnemyDetector1"), NodePath("EnemyDetectors/EnemyDetector2"), NodePath("EnemyDetectors/EnemyDetector3")]
 closeArea = NodePath("EnemyDetectors/CloseEnemyDetector")
+midArea = NodePath("EnemyDetectors/MidEnemyDetector")
 
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -144,6 +148,12 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/CloseEnemyDetector"]
 shape = SubResource("CircleShape2D_1bdwq")
+
+[node name="MidEnemyDetector" type="Area2D" parent="EnemyDetectors"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/MidEnemyDetector"]
+shape = SubResource("CircleShape2D_qmn8q")
 
 [node name="Items" type="Node" parent="."]
 
