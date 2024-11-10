@@ -3,9 +3,8 @@ class_name Hero extends CharacterBody2D
 var potentialItems = [MotorOil, GearThrower, MagneticOrbit]
 var currentItems : Array[ItemBase]
 @onready var Items = $Items
-@export var currentExperience = 0
 var currentLevel = 1
-var experienceThreshold:int = 100
+var experienceThreshold:int = 10
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D
@@ -68,9 +67,9 @@ func move():
 
 
 func _on_level_check_timer_timeout() -> void:
-	if currentExperience >= experienceThreshold:
+	print(experienceThreshold)
+	if ResourceManager.spendResource(ResourceManager.ResourceNames.HERO_XP, experienceThreshold):
 		levelUp.emit()
-		currentExperience -= experienceThreshold
 		experienceThreshold *= 1.3
 		currentLevel += 1
 		var temp = potentialItems[randi_range(0, potentialItems.size()-1)]
