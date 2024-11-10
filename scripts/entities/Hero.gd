@@ -10,11 +10,11 @@ var health : int = 100
 @export var closeArea: Area2D
 @export var midArea: Area2D
 
-@export var damageMultiplier : float
-@export var attackSpeedMultiplier : float
-@export var moveSpeedMultiplier : float
-@export var damageTakenMultiplier : float
-@export var healthMultiplier : float
+@export var damageMultiplier : float = 1.0
+@export var attackSpeedMultiplier : float = 1.0
+@export var moveSpeedMultiplier : float = 1.0
+@export var damageTakenMultiplier : float = 1.0
+@export var healthMultiplier : float = 1.0
 
 var heroLevel: int = 1
 
