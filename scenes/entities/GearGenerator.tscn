@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdpd2dn3lhwxl"]
+[gd_scene load_steps=5 format=3 uid="uid://bdpd2dn3lhwxl"]
 
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_jcgwb"]
 [ext_resource type="Script" path="res://scripts/entities/GearGenerator.gd" id="2_626rs"]
+[ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_8cuqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sk08t"]
+radius = 64.0
 
 [node name="BonesGenerator" type="Sprite2D"]
 texture = ExtResource("1_jcgwb")
@@ -9,5 +13,11 @@ script = ExtResource("2_626rs")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Damageable" type="Area2D" parent="."]
+script = ExtResource("3_8cuqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
+shape = SubResource("CircleShape2D_sk08t")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

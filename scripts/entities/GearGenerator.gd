@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	ResourceManager.addResource(ResourceManager.ResourceNames.GEARS,gearsPerInterval)
+
+func destroy():
+	$Damageable.get_overlapping_areas()
+	queue_free()

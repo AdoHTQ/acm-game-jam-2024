@@ -19,10 +19,10 @@ texture = ExtResource("1_hkjtc")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3125
-anchor_top = 0.0268519
-anchor_right = 0.988542
-anchor_bottom = 0.126852
+anchor_left = 0.0229167
+anchor_top = 0.0240741
+anchor_right = 0.698959
+anchor_bottom = 0.124074
 theme_override_constants/separation = 40
 metadata/_edit_use_anchors_ = true
 
