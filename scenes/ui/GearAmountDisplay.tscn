@@ -50,10 +50,9 @@ offset_left = -373.5
 offset_right = 373.5
 offset_bottom = 204.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0.0166664, 1)
 theme_override_fonts/font = ExtResource("2_4x4ew")
 theme_override_font_sizes/font_size = 101
-text = "
-"
 horizontal_alignment = 1
 script = ExtResource("3_0d005")
 

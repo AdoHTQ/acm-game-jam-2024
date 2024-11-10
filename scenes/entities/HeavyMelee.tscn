@@ -1068,8 +1068,8 @@ directionalSprite = NodePath("DirectionalSprite")
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_mqb3w")
-animation = &"idle"
-frame_progress = 0.870318
+animation = &"attack_r"
+frame_progress = 0.0074177
 speed_scale = 6.0
 script = ExtResource("124_juddy")
 
