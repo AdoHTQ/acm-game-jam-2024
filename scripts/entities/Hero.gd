@@ -22,7 +22,7 @@ var heroLevel: int = 1
 
 var moveDirection: Vector2 = Vector2.ZERO
 
-signal itemCollected
+signal levelUp
 signal heroDied
 
 func _ready() -> void:
@@ -74,6 +74,7 @@ func move():
 
 func _on_level_check_timer_timeout() -> void:
 	if currentExperience >= experienceThreshold:
+		levelUp.emit()
 		currentExperience -= experienceThreshold
 		experienceThreshold *= 1.3
 		currentLevel += 1
