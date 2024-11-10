@@ -8,7 +8,7 @@ class_name Unit extends CharacterBody2D
 
 func _init() -> void:
 	speedMultiplier = 1
-	destination = Vector2(0, 0)
+	destination = position
 
 func _physics_process(delta: float) -> void:
 	

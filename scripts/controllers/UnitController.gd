@@ -6,6 +6,8 @@ class_name UnitController extends Area2D
 var inverseOffset: Vector2
 
 var isSelecting: bool
+var startChecking: bool
+var timeAfterStart: float
 
 var rectToDraw: Rect2
 
@@ -31,6 +33,17 @@ func _process(delta: float) -> void:
 		)
 	else:
 		rectToDraw = Rect2(-999999, -999999, 0, 0)
+	
+	# this is to stop checking for entities in the selection area after half a second
+	# I know its really dank, I don't like it either
+	if startChecking:
+		timeAfterStart += delta
+		if timeAfterStart > 0.25:
+			position = Vector2(-99999, -99999)
+			startChecking = false
+			timeAfterStart = 0
+	
+	
 
 func _body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int):
 	selectedUnits.append(body)
@@ -49,11 +62,11 @@ func _input(event: InputEvent) -> void:
 				(collisionShape.shape as RectangleShape2D).extents = (bottomRightCoords - topLeftCoords if bottomRightCoords > topLeftCoords else topLeftCoords - bottomRightCoords) / 2
 
 				isSelecting = false
+				startChecking = true
 
 		# this handles rallying units to the position of the mouse
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			# only check for the press so we don't get double commands
 			if event.pressed:
-				print(selectedUnits)
 				for unit in selectedUnits:
 					unit.destination = event.position + cam.offset - inverseOffset
