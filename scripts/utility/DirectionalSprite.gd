@@ -20,14 +20,11 @@ func _process(delta: float) -> void:
 		if velocity.length() > 0:
 			animation = "walk_" + ("l" if velocity.x < 0 else "r")
 		else:
-			animation = "idle"
-
-func attack():
-	var parent: CharacterBody2D = get_parent()
-	oneshot("attack_" + ("l" if parent.velocity.x < 0 else "r"))
+			animation = "idle_" + ("l" if velocity.x < 0 else "r")
 
 func oneshot(anim: String):
-	play(anim)
+	var parent: CharacterBody2D = get_parent()
+	play(anim + ("l" if parent.velocity.x < 0 else "r"))
 	oneshotting = true
 
 func anim_done():
