@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 			(get_viewport().get_mouse_position() / cam.zoom - topLeftCoords)
 		)
 	else:
+		# send it really far away so we don't get a 1x1 pixel drawn
 		rectToDraw = Rect2(-999999, -999999, 0, 0)
 	
 	# this is to stop checking for entities in the selection area after half a second
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 	if startChecking:
 		timeAfterStart += delta
 		if timeAfterStart > 0.25:
+			# send it really far away so the units "re-enter" when we draw a new box
 			position = Vector2(-99999, -99999)
 			startChecking = false
 			timeAfterStart = 0
@@ -55,9 +57,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# this handles selecting a new group of units
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			# the press down, keep track of first corner
 			if event.pressed:
 				topLeftCoords = event.position / cam.zoom
 				isSelecting = true
+			# the release, create the new rectangle and check for units inside
 			else:
 				selectedUnits.clear()
 				bottomRightCoords = event.position / cam.zoom
@@ -69,17 +73,26 @@ func _input(event: InputEvent) -> void:
 
 		# this handles rallying units to the position of the mouse
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			# only check for the press so we don't get double commands
+			# only check for the press down so we don't get double commands
 			if event.pressed:
 				var dest: Vector2
 				var heroLock: bool
+				
+				var avgPos: Vector2
+				var posCount: int
+				# lock the destination to the hero
 				if abs(hero.position - (event.position / cam.zoom + cam.offset - inverseOffset / cam.zoom)).length() < hero.midArea.get_child(0).shape.radius:
 					dest = hero.position
 					heroLock = true
+				# set the destination to the point clicked
 				else:
+					for unit in selectedUnits:
+						avgPos += unit.position
+						posCount += 1
+					avgPos /= posCount
 					dest = event.position / cam.zoom + cam.offset - inverseOffset / cam.zoom
 					heroLock = false
-					
+			
 				for unit in selectedUnits:
-					unit.destination = dest
+					unit.destination = dest - (avgPos - unit.position)
 					unit.lock_hero(heroLock)
