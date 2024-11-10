@@ -1,5 +1,7 @@
 class_name Unit extends CharacterBody2D
 
+@export var unitPower: int
+
 @export var speedMultiplier: int
 
 @export var unitSpeed: Vector2

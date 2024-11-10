@@ -1,7 +1,7 @@
 extends Node
 
 # Add entries to add more resources
-enum ResourceNames {GEARS}
+enum ResourceNames {GEARS, HERO_XP}
 
 var resourceCounts : Array = []
 

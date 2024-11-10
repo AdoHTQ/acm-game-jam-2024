@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8krpm8sky75s"]
 
-[ext_resource type="PackedScene" uid="uid://1nsoy0vw0hg3" path="res://scenes/entities/GearProjectile.tscn" id="1_v6ck1"]
+[ext_resource type="PackedScene" path="res://scenes/entities/GearProjectile.tscn" id="1_v6ck1"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="2_x3oxo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b45gr"]
