@@ -23,7 +23,7 @@ var heroLevel: int = 1
 var moveDirection: Vector2 = Vector2.ZERO
 
 signal levelUp
-signal heroDied
+
 
 func _ready() -> void:
 	potentialItems.append(MotorOil)
@@ -34,12 +34,6 @@ func _physics_process(delta):
 	
 	velocity = moveDirection * moveSpeed * moveSpeedMultiplier
 	move_and_slide()
-
-func damage(damage: int) -> void:
-	health -= damage
-	if health <= 0:
-		heroDied.emit()
-		# play a death animation or something idk
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
