@@ -45,15 +45,15 @@ text = "Light Melee
 
 [node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control" index="1"]
 text = "Light Gunner
-10 gears"
+8 gears"
 
 [node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit3/Control" index="1"]
 text = "Heavy Melee
-20 gears"
+12 gears"
 
 [node name="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit4/Control" index="1"]
 text = "Heavy Gunner
-50 gears"
+20 gears"
 
 [node name="MarginContainer2" parent="CanvasLayer/UnitScene" index="1"]
 anchor_top = 0.669444
@@ -70,7 +70,7 @@ grow_vertical = 2
 
 [node name="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control" index="1"]
 text = "Factory
-20 gears"
+10 gears"
 
 [node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control" index="0"]
 layout_mode = 1
@@ -85,7 +85,7 @@ grow_vertical = 2
 [node name="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control" index="1"]
 text = "Engineering
 Bay
-100 gears"
+50 gears"
 
 [node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control" index="0"]
 layout_mode = 1
@@ -99,7 +99,7 @@ grow_vertical = 2
 
 [node name="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control" index="1"]
 text = "Radio Tower
-500 gears"
+120 gears"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_crtym")]
 visible = false
@@ -128,6 +128,9 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.525101, 0.525101, 0.525101, 1)
 
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control/Button" to="." method="_on_light_melee_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control/Button" to="." method="_on_light_gunner_button_pressed"]

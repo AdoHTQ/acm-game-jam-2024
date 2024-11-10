@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://4xeb4klonw2r"]
+[gd_scene load_steps=134 format=3 uid="uid://4xeb4klonw2r"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_k6678"]
 [ext_resource type="Texture2D" uid="uid://db4bacehxm1pf" path="res://assets/textures/units/light-gunner/walk_r/0000.png" id="2_nhisv"]
@@ -720,6 +720,15 @@ _data = {
 "death": SubResource("Animation_t4btt")
 }
 
+[sub_resource type="Gradient" id="Gradient_pul8f"]
+colors = PackedColorArray(0.401662, 0.578666, 0.866521, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kct32"]
+gradient = SubResource("Gradient_pul8f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
 [node name="HeavyGunner" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
@@ -764,5 +773,9 @@ libraries = {
 [node name="Cost" type="Node" parent="."]
 script = ExtResource("127_3sygj")
 cost = 20
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_kct32")
+texture_scale = 3.0
 
 [connection signal="body_entered" from="Damageable" to="." method="_on_damageable_body_entered"]
