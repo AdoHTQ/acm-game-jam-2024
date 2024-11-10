@@ -16,6 +16,5 @@ func _process(delta: float) -> void:
 	else:
 		if velocity.length() > 0:
 			animation = "walk_" + ("l" if velocity.x < 0 else "r")
-			print(animation)
 		else:
 			animation = "idle"
