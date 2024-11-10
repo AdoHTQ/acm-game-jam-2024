@@ -35,10 +35,190 @@ anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="1"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="3"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer" index="0"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer" index="1"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer2/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer" index="2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer3/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer3/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="Buildings" type="Node2D" parent="."]
 
 [node name="Units" type="Node2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer2/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer3/Control/Button" to="." method="_on_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]
