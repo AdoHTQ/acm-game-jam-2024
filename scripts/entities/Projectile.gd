@@ -8,10 +8,6 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(_on_body_entered)
 
-func _init() -> void:
-	direction = Vector2(0, 0)
-	damage = 1
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	position += direction * speed
