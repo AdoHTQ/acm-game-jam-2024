@@ -1,11 +1,11 @@
 class_name Hero extends CharacterBody2D
 
-var potentialItems = [MotorOil, GearThrower]
+var potentialItems = [MotorOil, GearThrower, MagneticOrbit]
 var currentItems : Array[ItemBase]
 @onready var Items = $Items
 @export var currentExperience = 0
 var currentLevel = 1
-var experienceThreshold:int = 0
+var experienceThreshold:int = 100
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D
@@ -28,6 +28,7 @@ signal levelUp
 func _ready() -> void:
 	potentialItems.append(MotorOil)
 	potentialItems.append(ItemBase)
+	%LevelCheckTimer.start()
 func _physics_process(delta):
 	
 	

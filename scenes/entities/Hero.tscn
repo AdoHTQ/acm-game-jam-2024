@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dld2f7wnydkhm" path="res://assets/textures/hero/walk_r/05.png" id="10_dj1bu"]
 [ext_resource type="Texture2D" uid="uid://c5ssolgf7nun0" path="res://assets/textures/hero/walk_r/06.png" id="11_jxitt"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="13_0cggu"]
-[ext_resource type="Script" path="res://scripts/entities/items/GearThrower.gd" id="14_doeji"]
+[ext_resource type="Script" path="res://scripts/entities/items/MagneticOrbit.gd" id="14_lspod"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4kfx"]
 animations = [{
@@ -142,8 +142,8 @@ wait_time = 0.1
 autostart = true
 
 [node name="LevelCheckTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.5
-autostart = true
 
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -220,8 +220,8 @@ shape = SubResource("RectangleShape2D_m1n0q")
 
 [node name="Items" type="Node2D" parent="."]
 
-[node name="GearThrower" type="Node2D" parent="Items"]
-script = ExtResource("14_doeji")
+[node name="MagneticOrbit" type="Node2D" parent="Items"]
+script = ExtResource("14_lspod")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
