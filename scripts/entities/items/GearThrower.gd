@@ -23,6 +23,7 @@ func attack():
 		var instance: Projectile = gear.instantiate()
 		instance.position = hero.position
 		instance.direction = instance.position.direction_to(minDistUnit.position)
+		instance.damage *= hero.damageMultiplier
 		get_tree().root.add_child(instance)
 	
 	get_tree().create_timer(1.).timeout.connect(attack)

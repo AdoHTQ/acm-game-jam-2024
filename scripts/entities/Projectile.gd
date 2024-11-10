@@ -13,7 +13,7 @@ func _init() -> void:
 	damage = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process() -> void:
+func _physics_process(delta: float) -> void:
 	position += direction * speed
 	
 func _on_area_entered(area: Area2D) -> void:
