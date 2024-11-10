@@ -1,9 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://t1wk40fd7cem"]
+[gd_scene load_steps=25 format=3 uid="uid://t1wk40fd7cem"]
 
-[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_cpbgh"]
 [ext_resource type="Script" path="res://scripts/entities/RadTower.gd" id="2_jwoaj"]
 [ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="3_1b3sx"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_55t4s"]
+[ext_resource type="Texture2D" uid="uid://dd85wptrfrfjy" path="res://assets/textures/struct/factories/satellite_variant/0000.png" id="4_sjn1n"]
+[ext_resource type="Texture2D" uid="uid://bw6ym05rk7esh" path="res://assets/textures/struct/factories/satellite_variant/0001.png" id="5_ug5g5"]
+[ext_resource type="Texture2D" uid="uid://crypd31mhfqrn" path="res://assets/textures/struct/factories/satellite_variant/0002.png" id="6_d6kgb"]
+[ext_resource type="Texture2D" uid="uid://dxu4n2871ck52" path="res://assets/textures/struct/factories/satellite_variant/0003.png" id="7_ia6pe"]
+[ext_resource type="Texture2D" uid="uid://bf051eqy8c0yf" path="res://assets/textures/struct/factories/satellite_variant/0004.png" id="8_buixi"]
+[ext_resource type="Texture2D" uid="uid://de2jg1i7hj717" path="res://assets/textures/struct/factories/satellite_variant/0005.png" id="9_h7b58"]
+[ext_resource type="Texture2D" uid="uid://b1er1uvsrinmi" path="res://assets/textures/struct/factories/satellite_variant/0006.png" id="10_s6md0"]
+[ext_resource type="Texture2D" uid="uid://cituwghgjy0c" path="res://assets/textures/struct/factories/satellite_variant/0007.png" id="11_bumd3"]
+[ext_resource type="Texture2D" uid="uid://ddah2rhldejkn" path="res://assets/textures/struct/factories/satellite_variant/0008.png" id="12_vu8ep"]
+[ext_resource type="Texture2D" uid="uid://c8vu3c1mk88qe" path="res://assets/textures/struct/factories/satellite_variant/0009.png" id="13_knmpf"]
+[ext_resource type="Texture2D" uid="uid://dha615bqrewpr" path="res://assets/textures/struct/factories/satellite_variant/0010.png" id="14_c2eti"]
+[ext_resource type="Texture2D" uid="uid://bwfay6dr3ky03" path="res://assets/textures/struct/factories/satellite_variant/0011.png" id="15_5u58o"]
+[ext_resource type="Texture2D" uid="uid://2yydeo075jqr" path="res://assets/textures/struct/factories/satellite_variant/0012.png" id="16_8iaff"]
+[ext_resource type="Texture2D" uid="uid://br3i20wa7f3ea" path="res://assets/textures/struct/factories/satellite_variant/0013.png" id="17_kvmsd"]
+[ext_resource type="Texture2D" uid="uid://bhlsv1naolkix" path="res://assets/textures/struct/factories/satellite_variant/0014.png" id="18_dvyg1"]
+[ext_resource type="Texture2D" uid="uid://fp5c51pt0wr2" path="res://assets/textures/struct/factories/satellite_variant/0015.png" id="19_coi7j"]
+[ext_resource type="Script" path="res://scripts/utility/Autoplay.gd" id="20_gydou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrg1"]
 size = Vector2(120, 120)
@@ -30,8 +46,63 @@ _data = {
 "death": SubResource("Animation_gmp6l")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_242r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sjn1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ug5g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d6kgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ia6pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_buixi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h7b58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_s6md0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bumd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vu8ep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_knmpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c2eti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5u58o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8iaff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kvmsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dvyg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_coi7j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="RadTower" type="Sprite2D" node_paths=PackedStringArray("timer")]
-texture = ExtResource("1_cpbgh")
 script = ExtResource("2_jwoaj")
 timer = NodePath("Timer")
 
@@ -55,5 +126,14 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_66olt")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_242r2")
+frame = 10
+frame_progress = 0.636007
+speed_scale = 6.0
+script = ExtResource("20_gydou")
 
 [connection signal="timeout" from="Timer" to="." method="win"]
