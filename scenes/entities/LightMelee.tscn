@@ -27,3 +27,5 @@ script = ExtResource("3_jfrmf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
+
+[connection signal="body_entered" from="Damageable" to="." method="_on_damageable_body_entered"]
