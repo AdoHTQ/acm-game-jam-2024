@@ -11,7 +11,8 @@ func _process(delta: float) -> void:
 	
 	if mirrorMode:
 		animation = "walk" if velocity.length() > 0 else "idle"
-		flip_h = velocity.x < 0
+		if velocity.x < 0: flip_h = true
+		if velocity.x > 0: flip_h = false
 	else:
 		if velocity.length() > 0:
 			animation = "walk_" + "l" if velocity.x < 0 else "r"
