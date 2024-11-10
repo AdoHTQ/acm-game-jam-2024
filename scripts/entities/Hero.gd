@@ -82,4 +82,6 @@ func _on_level_check_timer_timeout() -> void:
 			print("Upgraded!")
 			potentialItems[currentItems.find(temp)].upgrade()
 		Items.add_child(temp.new())
-		
+
+func die():
+	get_tree().change_scene_to_file("res://scenes/ui/Win.tscn")

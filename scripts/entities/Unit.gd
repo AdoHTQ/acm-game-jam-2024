@@ -4,7 +4,7 @@ class_name Unit extends CharacterBody2D
 
 @export var speedMultiplier: int
 
-@export var audioPlayer: AudioStreamPlayer
+@export var audioPlayer: AudioStreamPlayer2D
 
 var hero: Hero
 

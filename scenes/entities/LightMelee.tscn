@@ -729,12 +729,13 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 1)
 
-[node name="LightMelee" type="CharacterBody2D"]
+[node name="LightMelee" type="CharacterBody2D" node_paths=PackedStringArray("audioPlayer")]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_egq1o")
 unitPower = 1
 speedMultiplier = 50
+audioPlayer = NodePath("AudioStreamPlayer2D")
 
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
