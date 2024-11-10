@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk08t"]
 radius = 64.0
 
-[node name="BonesGenerator" type="Sprite2D"]
+[node name="GearGenerator" type="Sprite2D"]
 texture = ExtResource("1_jcgwb")
 script = ExtResource("2_626rs")
 

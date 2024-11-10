@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("confirm") and isPlacing:
 		if ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS,0):
-			#if (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_bodies().size()):
-			var newThing = holder.instantiate()
-			newThing.set_position(get_global_mouse_position())
-			add_child(newThing)
+			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
+				var newThing = holder.instantiate()
+				newThing.set_position(get_global_mouse_position())
+				add_child(newThing)
 			
 	
 
