@@ -4,11 +4,11 @@ var isPlacing : bool
 @onready var holder = preload("res://scenes/entities/GearGenerator.tscn")
 @onready var lightMelee = preload("res://scenes/entities/LightMelee.tscn")
 @onready var instance = null
-
+enum Level {NONE,LOW,MED,HIGH}
 var lowBuildLeft : int = 10 
 var medBuildLeft : int = 10 
 var highBuildLeft : int = 10 
-
+var tmp : Level = Level.NONE
 var currentCounterLabel = null # Just for making the building limited supply label work.
 # Called when the node enters the scene tree for the first time.
 
@@ -22,8 +22,14 @@ func _process(delta: float) -> void:
 		if ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS,0):
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
 				print("Hi!")
-				if currentCounterLabel != null:
+				if tmp == Level.LOW:
 					lowBuildLeft -= 1
+					currentCounterLabel.text = str(lowBuildLeft) + " Left"
+				elif tmp == Level.MED:
+					medBuildLeft -= 1
+					currentCounterLabel.text = str(lowBuildLeft) + " Left"
+				elif tmp == Level.HIGH:
+					highBuildLeft -= 1
 					currentCounterLabel.text = str(lowBuildLeft) + " Left"
 				isPlacing = false
 				instance = null
@@ -36,6 +42,7 @@ func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 		instance = holder.instantiate()
 		add_child(instance)
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Label2
+		tmp = Level.LOW
 	
 func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
 	if isPlacing == true:
