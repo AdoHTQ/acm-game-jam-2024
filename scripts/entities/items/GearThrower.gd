@@ -10,8 +10,19 @@ func _ready() -> void:
 	upgrade()
 
 func upgrade():
-	var timer: SceneTreeTimer = get_tree().create_timer(1.)
-	#timer.timeout.connect(attack)
+	get_tree().create_timer(1.).timeout.connect(attack)
 
-#func attack():
-	#
+
+func attack():
+	if hero.outerArea.get_overlapping_bodies().size() > 0:
+		var minDistUnit: Unit = hero.outerArea.get_overlapping_bodies()[0]
+		var minDist = hero.outerArea.get_overlapping_bodies()[0].position.distance_squared_to(position)
+		for unit: Unit in hero.outerArea.get_overlapping_bodies():
+			if (unit.position.distance_squared_to(position) < minDist): minDistUnit = unit
+	
+		var instance: Projectile = gear.instantiate()
+		instance.position = hero.position
+		instance.direction = instance.position.direction_to(minDistUnit.position)
+		get_tree().root.add_child(instance)
+	
+	get_tree().create_timer(1.).timeout.connect(attack)

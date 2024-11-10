@@ -716,6 +716,8 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
 
 [node name="Damageable" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("3_jfrmf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
@@ -723,4 +725,4 @@ visible = false
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
 
-[connection signal="body_entered" from="Damageable" to="." method="_on_damageable_body_entered"]
+[connection signal="area_entered" from="Damageable" to="." method="_on_damageable_area_entered"]

@@ -2,7 +2,6 @@ class_name Hero extends CharacterBody2D
 
 var potentialItems = []
 var currentItems : Array[ItemBase]
-var health : int = 100
 @onready var Items = $Items
 @export var currentExperience = 0
 var currentLevel = 1
@@ -11,6 +10,7 @@ var experienceThreshold:int = 100
 @export var directions: Array[Area2D] = []
 @export var closeArea: Area2D
 @export var midArea: Area2D
+@export var outerArea: Area2D
 
 @export var damageMultiplier : float = 1.0
 @export var attackSpeedMultiplier : float = 1.0
