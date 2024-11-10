@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkowwcaf4rkje"]
+
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="1_04deb"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_04deb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326042
+anchor_top = 0.102778
+anchor_right = 0.673958
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit to Main Menu"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit to Desktop"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 81
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00017
+anchor_bottom = 0.999963
+offset_right = -0.320004
+offset_bottom = 0.0400009
+mouse_filter = 2
+color = Color(0, 0, 0, 0.0823529)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_quit_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="on_quit_pressed"]
