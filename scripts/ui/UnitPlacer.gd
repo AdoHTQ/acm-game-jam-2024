@@ -43,7 +43,6 @@ func _process(delta: float) -> void:
 				ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost)
 				match tmp:
 					Level.LOW:
-						instance.enabled = true
 						lowBuildLeft -= 1
 						currentCounterLabel.text = str(lowBuildLeft) + " Left"
 					Level.MED:
@@ -53,6 +52,8 @@ func _process(delta: float) -> void:
 					Level.HIGH:
 						highBuildLeft -= 1
 						currentCounterLabel.text = str(highBuildLeft) + " Left"
+				instance.enabled = true
+				instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 				isPlacing = false
 				instance = null
 		else:
@@ -71,6 +72,7 @@ func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 		isPlacing = true
 		instance = gearGen.instantiate()
 		add_child(instance)
+		instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Label2
 		tmp = Level.LOW
 	else:
@@ -84,6 +86,7 @@ func _on_med_building_button_pressed() -> void:
 		isPlacing = true
 		instance = engBay.instantiate()
 		add_child(instance)
+		instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control/Label2
 		tmp = Level.MED
 	else:
@@ -102,6 +105,7 @@ func _on_high_building_button_pressed() -> void:
 		isPlacing = true
 		instance = gearGen.instantiate()
 		add_child(instance)
+		instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control/Label2
 		tmp = Level.HIGH
 	else:
@@ -115,12 +119,15 @@ func _on_high_building_button_pressed() -> void:
 	
 func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
 	tmp = Level.NONE
+	
 	if isPlacing == true:
 		remove_child(instance)
 		currentCounterLabel = null
 	isPlacing = true
 	instance = lightMelee.instantiate()
+	
 	add_child(instance)
+	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 	
 func _on_light_gunner_button_pressed() -> void:
 	tmp = Level.NONE
@@ -129,7 +136,9 @@ func _on_light_gunner_button_pressed() -> void:
 		currentCounterLabel = null
 	isPlacing = true
 	instance = lightGunner.instantiate()
+	
 	add_child(instance)
+	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 	
 func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
 	tmp = Level.NONE
@@ -138,8 +147,9 @@ func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
 		currentCounterLabel = null
 	isPlacing = true
 	instance = heavyMelee.instantiate()
-	add_child(instance)
 	
+	add_child(instance)
+	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 func _on_heavy_gunner_button_pressed() -> void:
 	tmp = Level.NONE
 	if isPlacing == true:
@@ -147,4 +157,6 @@ func _on_heavy_gunner_button_pressed() -> void:
 		currentCounterLabel = null
 	isPlacing = true
 	instance = heavyGunner.instantiate()
+	
 	add_child(instance)
+	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
