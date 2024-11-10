@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmmo5qovn0gj4"]
+[gd_scene load_steps=6 format=3 uid="uid://cmmo5qovn0gj4"]
 
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="1_0pkk4"]
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_f06rs"]
 [ext_resource type="PackedScene" uid="uid://fjyfhauwk0jy" path="res://scenes/entities/Hero.tscn" id="2_0inr3"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="3_0krn8"]
+[ext_resource type="PackedScene" uid="uid://dkowwcaf4rkje" path="res://scenes/ui/PauseMenu.tscn" id="5_dsmon"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_f06rs")
@@ -272,8 +273,14 @@ text = "10 units left"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_dsmon")]
+visible = false
+anchors_preset = 15
+
 [node name="Buildings" type="Node2D" parent="."]
 
 [node name="Units" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control/Button" to="." method="_on_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]
