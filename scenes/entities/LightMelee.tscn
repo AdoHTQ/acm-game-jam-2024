@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cahmu8lq3hlnt"]
+[gd_scene load_steps=4 format=3 uid="uid://dyiblhgo2cngs"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_egq1o"]
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="2_lwxde"]
@@ -9,7 +9,6 @@ size = Vector2(121, 119)
 [node name="LightMelee" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_egq1o")
-unitPower = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)

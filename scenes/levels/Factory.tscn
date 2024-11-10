@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmmo5qovn0gj4"]
 
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="1_0pkk4"]
-[ext_resource type="PackedScene" path="res://scenes/entities/Hero.tscn" id="2_0inr3"]
+[ext_resource type="PackedScene" uid="uid://cxe3truqio7m6" path="res://scenes/entities/Hero.tscn" id="2_0inr3"]
 
 [node name="Factory" type="Node2D"]
 
@@ -20,4 +20,5 @@ polygons = [PackedInt32Array(0, 1, 2, 3)]
 [node name="CanvasModulate" type="CanvasModulate" parent="Level"]
 color = Color(0.422883, 0.422883, 0.422883, 1)
 
-[node name="Hero" parent="." instance=ExtResource("2_0inr3")]
+[node name="Hero" parent="." node_paths=PackedStringArray("directions") instance=ExtResource("2_0inr3")]
+directions = []
