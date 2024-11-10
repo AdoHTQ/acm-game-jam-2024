@@ -65,6 +65,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
+	if isPlacing: return
 	if lowBuildLeft > 0:
 		isPlacing = true
 		instance = gearGen.instantiate()
@@ -77,6 +78,7 @@ func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 		popup.popup()
 		
 func _on_med_building_button_pressed() -> void:
+	if isPlacing: return
 	if medBuildLeft > 0:
 		isPlacing = true
 		instance = engBay.instantiate()
@@ -89,6 +91,7 @@ func _on_med_building_button_pressed() -> void:
 		popup.popup()
 		
 func _on_high_building_button_pressed() -> void:
+	if isPlacing: return
 	var canBuild = false
 	for bay in engBays:
 		if bay.doneResearch:
