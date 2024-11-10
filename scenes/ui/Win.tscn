@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj8ay2ekohqow"]
+[gd_scene load_steps=5 format=3 uid="uid://dgyfudcm7y0fn"]
 
-[ext_resource type="Texture2D" uid="uid://ogj1jtyydlq6" path="res://assets/textures/badassknight.png" id="1_r6758"]
+[ext_resource type="Texture2D" uid="uid://1t188b0b7fs7" path="res://assets/textures/ROBOTSRISEAGAIN.png" id="1_e0qnc"]
 [ext_resource type="FontFile" uid="uid://coy6linfsyr3u" path="res://assets/fonts/Kadwa-Regular.ttf" id="2_518rf"]
 [ext_resource type="Script" path="res://scripts/ui/scene_button.gd" id="3_trwru"]
 [ext_resource type="AudioStream" uid="uid://cd5wuoa5x0hug" path="res://assets/audio/music/song18.mp3" id="4_xenar"]
@@ -17,7 +17,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_r6758")
+texture = ExtResource("1_e0qnc")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
