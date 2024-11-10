@@ -3,6 +3,7 @@ class_name UnitPlacer extends Node2D
 var isPlacing : bool
 @onready var gearGen = preload("res://scenes/entities/GearGenerator.tscn")
 @onready var engBay = preload("res://scenes/entities/EngBay.tscn")
+@onready var radTower = preload("res://scenes/entities/RadTower.tscn")
 @onready var lightMelee = preload("res://scenes/entities/LightMelee.tscn")
 @onready var lightGunner = preload("res://scenes/entities/LightGunner.tscn")
 @onready var heavyMelee = preload("res://scenes/entities/HeavyMelee.tscn")
@@ -48,7 +49,7 @@ func _process(delta: float) -> void:
 						var newCopy = instance.duplicate()
 						
 						add_child(newCopy)
-						if newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower"):
+						if newCopy.get_node_or_null(newCopy.get_path() as String + "/ProjectileThrower"):
 							newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower").enabled = true
 						
 					Level.LOW:
@@ -119,7 +120,7 @@ func _on_high_building_button_pressed() -> void:
 			break
 	if highBuildLeft > 0 and canBuild:
 		isPlacing = true
-		instance = gearGen.instantiate()
+		instance = radTower.instantiate()
 		add_child(instance)
 		instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
 		currentCounterLabel = $CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control/Label2
