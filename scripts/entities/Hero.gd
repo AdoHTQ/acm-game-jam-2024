@@ -28,7 +28,6 @@ signal heroDied
 func _ready() -> void:
 	potentialItems.append(MotorOil)
 	potentialItems.append(ItemBase)
-	
 func _physics_process(delta):
 	
 	
@@ -78,6 +77,9 @@ func _on_level_check_timer_timeout() -> void:
 		currentExperience -= experienceThreshold
 		experienceThreshold *= 1.3
 		currentLevel += 1
-		
-		Items.add_child(potentialItems[randi_range(0, potentialItems.size()-1)].new())
+		var temp = potentialItems[randi_range(0, potentialItems.size()-1)]
+		if temp in currentItems:
+			print("Upgraded!")
+			potentialItems[currentItems.find(temp)].upgrade()
+		Items.add_child(temp.new())
 		
