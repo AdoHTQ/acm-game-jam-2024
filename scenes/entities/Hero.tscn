@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxe3truqio7m6"]
+[gd_scene load_steps=11 format=3 uid="uid://fjyfhauwk0jy"]
 
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_sq2ro"]
 
-[sub_resource type="Gradient" id="Gradient_yhq0p"]
+[sub_resource type="Gradient" id="Gradient_gp368"]
 colors = PackedColorArray(0.721194, 0.546555, 0.170393, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7nf3l"]
-gradient = SubResource("Gradient_yhq0p")
+gradient = SubResource("Gradient_gp368")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 1)

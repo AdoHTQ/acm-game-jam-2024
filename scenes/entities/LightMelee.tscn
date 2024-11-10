@@ -1,37 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cahmu8lq3hlnt"]
+[gd_scene load_steps=4 format=3 uid="uid://cahmu8lq3hlnt"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_egq1o"]
-[ext_resource type="Texture2D" uid="uid://c4siqhtgmu81k" path="res://assets/textures/units/light-melee/image.png" id="2_bef0t"]
+[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="2_lwxde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jplm"]
-size = Vector2(40, 40)
-
-[sub_resource type="Gradient" id="Gradient_gf6kd"]
-colors = PackedColorArray(0.341932, 0.725132, 0.768592, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l71ia"]
-gradient = SubResource("Gradient_gf6kd")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 1)
+size = Vector2(121, 119)
 
 [node name="LightMelee" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_egq1o")
 unitPower = 1
-speedMultiplier = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(9, -18)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_bef0t")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-texture = SubResource("GradientTexture2D_l71ia")
-texture_scale = 3.0
+texture = ExtResource("2_lwxde")
