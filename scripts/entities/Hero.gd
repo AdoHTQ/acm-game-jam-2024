@@ -33,7 +33,7 @@ func _ready() -> void:
 	potentialItems.append(ItemBase)
 	%LevelCheckTimer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if damageable.health > maxHealth: damageable.health = maxHealth
 	if healingCounter <= 0: 
 		damageable.health += 1

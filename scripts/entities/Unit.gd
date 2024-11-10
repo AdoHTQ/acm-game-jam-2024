@@ -18,7 +18,7 @@ func _ready() -> void:
 func _init() -> void:
 	destination = position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if heroLock: destination = hero.position
 	

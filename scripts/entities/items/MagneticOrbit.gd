@@ -8,7 +8,7 @@ func _ready() -> void:
 	hero = get_parent().get_parent()
 	upgrade()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	rotate(0.04)
 
 func upgrade():

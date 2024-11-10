@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfk3fh6av8pxs"]
+
+[ext_resource type="FontFile" uid="uid://coy6linfsyr3u" path="res://assets/fonts/Kadwa-Regular.ttf" id="1_h1vw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x4pu"]
+bg_color = Color(0.26, 0.26, 0.26, 0.705882)
+
+[node name="TutorialScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7x4pu")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 600
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 600
+theme_override_constants/margin_bottom = 150
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_h1vw1")
+bbcode_enabled = true
+text = "<center>Welcome to Rusted Ruin</center>"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h1vw1")
+theme_override_font_sizes/font_size = 40
+text = "OK"
