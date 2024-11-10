@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://fjyfhauwk0jy"]
+[gd_scene load_steps=23 format=3 uid="uid://fjyfhauwk0jy"]
 
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="3_bxe7q"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cbum6n8jo3pis" path="res://assets/textures/hero/walk_r/04.png" id="9_5tpti"]
 [ext_resource type="Texture2D" uid="uid://dld2f7wnydkhm" path="res://assets/textures/hero/walk_r/05.png" id="10_dj1bu"]
 [ext_resource type="Texture2D" uid="uid://c5ssolgf7nun0" path="res://assets/textures/hero/walk_r/06.png" id="11_jxitt"]
-[ext_resource type="Script" path="res://scripts/entities/items/MotorOil.gd" id="13_o0830"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k4kfx"]
 animations = [{
@@ -91,7 +90,7 @@ radius = 100.0
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bf824")
-moveSpeed = 200.0
+moveSpeed = 60.0
 directions = [NodePath("EnemyDetectors/EnemyDetector0"), NodePath("EnemyDetectors/EnemyDetector1"), NodePath("EnemyDetectors/EnemyDetector2"), NodePath("EnemyDetectors/EnemyDetector3")]
 closeArea = NodePath("EnemyDetectors/CloseEnemyDetector")
 midArea = NodePath("EnemyDetectors/MidEnemyDetector")
@@ -162,9 +161,6 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_qmn8q")
 
 [node name="Items" type="Node2D" parent="."]
-
-[node name="MotorOil" type="Node" parent="Items"]
-script = ExtResource("13_o0830")
 
 [connection signal="timeout" from="MoveTimer" to="." method="move"]
 [connection signal="timeout" from="LevelCheckTimer" to="." method="_on_level_check_timer_timeout"]
