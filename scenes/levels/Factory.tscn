@@ -25,7 +25,6 @@ polygons = [PackedInt32Array(0, 1, 2, 3)]
 scale = Vector2(0.989287, 0.987901)
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
-moveSpeed = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
