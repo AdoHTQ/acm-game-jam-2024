@@ -1,5 +1,7 @@
 class_name Hero extends CharacterBody2D
 
+var potentialItems : Array[ItemBase]
+var currentItems : Array[ItemBase]
 
 @export var moveSpeed: float
 @export var directions: Array[Area2D] = []
@@ -18,9 +20,16 @@ var moveDirection: Vector2 = Vector2.ZERO
 
 signal itemCollected
 
+#func _ready() -> void:
+#	
+
 func _physics_process(delta):
+	
+	
+	
 	velocity = moveDirection * moveSpeed
 	move_and_slide()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func move():
