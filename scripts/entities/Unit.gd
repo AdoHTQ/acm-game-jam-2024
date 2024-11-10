@@ -4,6 +4,8 @@ class_name Unit extends CharacterBody2D
 
 @export var speedMultiplier: int
 
+@export var audioPlayer: AudioStreamPlayer
+
 var hero: Hero
 
 var heroLock: bool
@@ -33,6 +35,7 @@ func lock_hero(toggle: bool) -> void:
 	heroLock = toggle
 
 func _on_damageable_area_entered(body: Node2D) -> void:
+	audioPlayer.play()
 	if (not body.get_parent() is Unit) and body is Damageable:
 		body.damage(20)
 		await get_tree().create_timer(0.5).timeout
