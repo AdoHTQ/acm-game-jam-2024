@@ -24,7 +24,5 @@ func _process(delta: float) -> void:
 			
 	
 
-
-
-func _on_button_pressed() -> void:
+func _on_low_building_button_pressed() -> void:# The cheapest and worst genertor
 	isPlacing = true
