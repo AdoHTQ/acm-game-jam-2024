@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2jh87kenlob7"]
+
+[ext_resource type="Script" path="res://scripts/ui/SettingsMenu.gd" id="1_87bix"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87bix")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.233333
+anchor_top = 0.277778
+anchor_right = 0.766833
+anchor_bottom = 0.722185
+offset_right = -0.320004
+offset_bottom = 0.0400009
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.921
+anchor_top = 0.0157407
+anchor_right = 0.989354
+anchor_bottom = 0.176
+offset_left = -0.104065
+offset_top = 0.444444
+offset_right = 0.901306
+offset_bottom = 0.519997
+theme_override_font_sizes/font_size = 50
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.136458
+anchor_top = 0.0925926
+anchor_right = 0.863708
+anchor_bottom = 0.999963
+offset_right = -0.319946
+offset_bottom = 0.0400391
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Sound Effect Volume"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="Panel/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/VBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/VBoxContainer3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
