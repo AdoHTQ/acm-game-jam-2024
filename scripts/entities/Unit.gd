@@ -35,6 +35,5 @@ func lock_hero(toggle: bool) -> void:
 
 func _on_damageable_area_entered(body: Node2D) -> void:
 	if (not body.get_parent() is Unit) and body is Damageable:
-		print("haha lol")
 		body.damage(20)
 		await get_tree().create_timer(0.5).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://fjyfhauwk0jy"]
+[gd_scene load_steps=27 format=3 uid="uid://fjyfhauwk0jy"]
 
 [ext_resource type="Script" path="res://scripts/entities/Hero.gd" id="1_bf824"]
 [ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="3_bxe7q"]
@@ -87,6 +87,42 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmn8q"]
 radius = 100.0
 
+[sub_resource type="Animation" id="Animation_rhvtv"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_85lqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anpa5"]
+_data = {
+"RESET": SubResource("Animation_85lqq"),
+"death": SubResource("Animation_rhvtv")
+}
+
 [node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("directions", "closeArea", "midArea")]
 collision_layer = 2
 collision_mask = 2
@@ -161,15 +197,21 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectors/MidEnemyDetector"]
 shape = SubResource("CircleShape2D_qmn8q")
 
-[node name="Items" type="Node2D" parent="."]
-
-[node name="Damageable" type="Area2D" parent="."]
+[node name="Damageable" type="Area2D" parent="." node_paths=PackedStringArray("animator")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("13_0cggu")
+animator = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
 shape = SubResource("RectangleShape2D_m1n0q")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_anpa5")
+}
 
 [connection signal="timeout" from="MoveTimer" to="." method="move"]
 [connection signal="timeout" from="LevelCheckTimer" to="." method="_on_level_check_timer_timeout"]
