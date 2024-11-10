@@ -1,25 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=5 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
-[ext_resource type="PackedScene" uid="uid://bvc3ownrpacys" path="res://scenes/entities/GameCamera.tscn" id="2_0uk4w"]
 [ext_resource type="PackedScene" uid="uid://fjyfhauwk0jy" path="res://scenes/entities/Hero.tscn" id="2_aum5c"]
 [ext_resource type="PackedScene" uid="uid://dkowwcaf4rkje" path="res://scenes/ui/PauseMenu.tscn" id="3_crtym"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="4_clq66"]
-[ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="5_xo6l3"]
-[ext_resource type="PackedScene" uid="uid://cahmu8lq3hlnt" path="res://scenes/entities/LightMelee.tscn" id="6_qytda"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_7tate")
-
-[node name="Sprite2D" type="Polygon2D" parent="."]
-texture_filter = 1
-texture_repeat = 2
-scale = Vector2(16, 9)
-texture = ExtResource("5_xo6l3")
-texture_scale = Vector2(16, 9)
-polygon = PackedVector2Array(-128, 128, -128, -128, 128, -128, 128, 128)
-uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
 
@@ -31,112 +18,10 @@ script = null
 
 [node name="UnitScene" parent="CanvasLayer" instance=ExtResource("4_clq66")]
 
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer5/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer6/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Units" type="Node2D" parent="."]
-
-[node name="LightMelee" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(-660, -556)
-
-[node name="LightMelee2" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(-678, -56)
-
-[node name="LightMelee3" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(770, -208)
-
-[node name="LightMelee4" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(-56, -630)
-
-[node name="LightMelee5" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(-622, 514)
-
-[node name="LightMelee6" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(797, 82)
-
-[node name="LightMelee7" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(492, 650)
-
-[node name="LightMelee8" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(0, 784)
-
-[node name="LightMelee9" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(753, 463)
-
-[node name="LightMelee10" parent="Units" instance=ExtResource("6_qytda")]
-position = Vector2(676, -610)
 
 [node name="Buildings" type="Node2D" parent="."]
 
-[node name="GameCamera" parent="." instance=ExtResource("2_0uk4w")]
-
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control/Button" to="." method="_on_low_building_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Button" to="." method="_on_low_building_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]
