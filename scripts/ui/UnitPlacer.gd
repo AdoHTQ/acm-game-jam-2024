@@ -8,7 +8,9 @@ var isPlacing : bool
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	instance.visible = false
 	add_child(instance)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	#temp.position = get_global_mouse_position()
