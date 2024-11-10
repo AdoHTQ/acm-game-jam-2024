@@ -760,10 +760,11 @@ visible = false
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
 
-[node name="ProjectileThrower" type="Node2D" parent="."]
+[node name="ProjectileThrower" type="Node2D" parent="." node_paths=PackedStringArray("directionalSprite")]
 script = ExtResource("126_7pll1")
 throwInterval = 1.0
 projectileDamage = 8
+directionalSprite = NodePath("../DirectionalSprite")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

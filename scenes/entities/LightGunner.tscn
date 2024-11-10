@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://com7b7lr5xcy1"]
+[gd_scene load_steps=13 format=3 uid="uid://com7b7lr5xcy1"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_y27nl"]
 [ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="124_2exdr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/entities/ProjectileThrower.gd" id="126_6ukkg"]
 [ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="127_gb4lk"]
 [ext_resource type="AudioStream" uid="uid://5fk23ovqnfcl" path="res://assets/audio/sound/light_attack.wav" id="141_akb2k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rc2ip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jplm"]
 size = Vector2(45, 67)
@@ -70,7 +72,7 @@ directionalSprite = NodePath("DirectionalSprite")
 
 [node name="DirectionalSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-animation = &"attack_l"
+sprite_frames = SubResource("SpriteFrames_rc2ip")
 speed_scale = 6.0
 script = ExtResource("124_2exdr")
 
