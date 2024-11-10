@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://t1wk40fd7cem"]
+
+[ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_cpbgh"]
+[ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="3_1b3sx"]
+[ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_55t4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrg1"]
+size = Vector2(120, 120)
+
+[node name="RadTower" type="Sprite2D"]
+texture = ExtResource("1_cpbgh")
+
+[node name="Damageable" type="Area2D" parent="."]
+script = ExtResource("3_55t4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
+shape = SubResource("RectangleShape2D_5xrg1")
+
+[node name="Cost" type="Node" parent="."]
+script = ExtResource("3_1b3sx")
+cost = 120

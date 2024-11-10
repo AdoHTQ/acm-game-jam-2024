@@ -2,6 +2,7 @@ class_name ProjectileThrower extends Node2D
 
 var timeSinceLastThrow: float
 @export var throwInterval: float
+@export var projectileDamage: int
 
 var projectileScene: PackedScene = preload("res://scenes/entities/LightProjectile.tscn")
 
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 
 		instance.direction = (hero.position - global_position).normalized()
 		instance.position = global_position
+		instance.damage = projectileDamage
 		
 		get_tree().root.add_child(instance)
 		timeSinceLastThrow = 0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdpd2dn3lhwxl"]
+[gd_scene load_steps=6 format=3 uid="uid://bdpd2dn3lhwxl"]
 
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="1_jcgwb"]
 [ext_resource type="Script" path="res://scripts/entities/GearGenerator.gd" id="2_626rs"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_8cuqm"]
+[ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="4_ap0u2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrg1"]
 size = Vector2(120, 120)
@@ -19,5 +20,9 @@ script = ExtResource("3_8cuqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
 shape = SubResource("RectangleShape2D_5xrg1")
+
+[node name="Cost" type="Node" parent="."]
+script = ExtResource("4_ap0u2")
+cost = 10
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

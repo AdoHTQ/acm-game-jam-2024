@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://com7b7lr5xcy1"]
+[gd_scene load_steps=132 format=3 uid="uid://com7b7lr5xcy1"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_y27nl"]
 [ext_resource type="Texture2D" uid="uid://db4bacehxm1pf" path="res://assets/textures/units/light-gunner/walk_r/0000.png" id="2_3dden"]
@@ -126,6 +126,7 @@
 [ext_resource type="Script" path="res://scripts/utility/DirectionalSprite.gd" id="124_2exdr"]
 [ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="125_x1afw"]
 [ext_resource type="Script" path="res://scripts/entities/ProjectileThrower.gd" id="126_6ukkg"]
+[ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="127_gb4lk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_202mc"]
 animations = [{
@@ -719,7 +720,7 @@ _data = {
 "death": SubResource("Animation_t4btt")
 }
 
-[node name="LightMelee" type="CharacterBody2D"]
+[node name="LightGunner" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_y27nl")
@@ -753,10 +754,15 @@ shape = SubResource("RectangleShape2D_0jplm")
 [node name="ProjectileThrower" type="Node2D" parent="."]
 script = ExtResource("126_6ukkg")
 throwInterval = 1.0
+projectileDamage = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ktnx5")
 }
+
+[node name="Cost" type="Node" parent="."]
+script = ExtResource("127_gb4lk")
+cost = 8
 
 [connection signal="body_entered" from="Damageable" to="." method="_on_damageable_body_entered"]

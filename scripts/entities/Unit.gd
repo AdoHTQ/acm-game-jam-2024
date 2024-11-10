@@ -4,11 +4,11 @@ class_name Unit extends CharacterBody2D
 
 @export var speedMultiplier: int
 
-@export var destination: Vector2
-
 var hero: Hero
 
 var heroLock: bool
+
+var destination: Vector2
 
 var currentHitbox
 
@@ -16,7 +16,6 @@ func _ready() -> void:
 	hero = get_node("/root/Factory/Hero")
 
 func _init() -> void:
-	speedMultiplier = 1
 	destination = position
 
 func _physics_process(delta: float) -> void:

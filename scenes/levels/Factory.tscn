@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn7k7u51opfn7"]
+[gd_scene load_steps=11 format=3 uid="uid://dn7k7u51opfn7"]
 
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_7tate"]
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="2_7fvde"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cahmu8lq3hlnt" path="res://scenes/entities/LightMelee.tscn" id="7_0uwew"]
 [ext_resource type="PackedScene" uid="uid://d37jdbvcr33oq" path="res://scenes/ui/GearAmountDisplay.tscn" id="7_6oc8s"]
 [ext_resource type="PackedScene" uid="uid://com7b7lr5xcy1" path="res://scenes/entities/LightGunner.tscn" id="8_6bqgi"]
+[ext_resource type="PackedScene" uid="uid://nq64cc42gscp" path="res://scenes/ui/NofiticationPopup.tscn" id="10_4af0h"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_7tate")
@@ -83,8 +84,14 @@ position = Vector2(-721, 0)
 
 [node name="Buildings" type="Node2D" parent="."]
 
+[node name="NotificationPopup" parent="." instance=ExtResource("10_4af0h")]
+
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control/Button" to="." method="_on_light_melee_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit2/Control/Button" to="." method="_on_light_gunner_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit3/Control/Button" to="." method="_on_heavy_melee_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit4/Control/Button" to="." method="_on_heavy_gunner_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Button" to="." method="_on_low_building_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building2/Control/Button" to="." method="_on_med_building_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building3/Control/Button" to="." method="_on_high_building_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]

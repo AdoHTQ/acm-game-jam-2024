@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://cahmu8lq3hlnt"]
+[gd_scene load_steps=131 format=3 uid="uid://cahmu8lq3hlnt"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_egq1o"]
 [ext_resource type="Texture2D" uid="uid://db4bacehxm1pf" path="res://assets/textures/units/light-gunner/walk_r/0000.png" id="2_jniog"]
@@ -125,6 +125,7 @@
 [ext_resource type="Texture2D" uid="uid://btn4qwloa8yer" path="res://assets/textures/units/light-gunner/walk_l/0058.png" id="121_f6sx3"]
 [ext_resource type="Texture2D" uid="uid://b7mjqttogg4hg" path="res://assets/textures/units/light-gunner/walk_l/0059.png" id="122_lcvq2"]
 [ext_resource type="Texture2D" uid="uid://dw2swpq32146f" path="res://assets/textures/units/light-gunner/walk_l/0060.png" id="123_nglto"]
+[ext_resource type="Script" path="res://scripts/utility/Cost.gd" id="126_g0nvx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_202mc"]
 animations = [{
@@ -753,5 +754,9 @@ shape = SubResource("RectangleShape2D_0jplm")
 libraries = {
 "": SubResource("AnimationLibrary_ktnx5")
 }
+
+[node name="Cost" type="Node" parent="."]
+script = ExtResource("126_g0nvx")
+cost = 5
 
 [connection signal="area_entered" from="Damageable" to="." method="_on_damageable_area_entered"]
