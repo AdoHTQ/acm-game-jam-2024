@@ -3,6 +3,7 @@ extends Node2D
 var isPlacing : bool
 @onready var holder = preload("res://scenes/entities/GearGenerator.tscn")
 @onready var lightMelee = preload("res://scenes/entities/LightMelee.tscn")
+@onready var lightGunner = preload("res://scenes/entities/LightGunner.tscn")
 @onready var instance = null
 enum Level {NONE,LOW,MED,HIGH}
 var lowBuildLeft : int = 10 
@@ -50,6 +51,14 @@ func _on_light_melee_button_pressed() -> void:# The cheapest and worst genertor
 		currentCounterLabel = null
 	isPlacing = true
 	instance = lightMelee.instantiate()
+	add_child(instance)
+	
+func _on_light_gunner_button_pressed() -> void:
+	if isPlacing == true:
+		remove_child(instance)
+		currentCounterLabel = null
+	isPlacing = true
+	instance = lightGunner.instantiate()
 	add_child(instance)
 	
 	
