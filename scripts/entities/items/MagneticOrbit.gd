@@ -19,7 +19,7 @@ func attack():
 	var instance: Projectile = orb.instantiate()
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.randomize()
-	instance.position = position + Vector2(rng.randf(), rng.randf()).normalized() * 150.
+	instance.position = position + Vector2(rng.randf_range(-1., 1.), rng.randf_range(-1., 1.)).normalized() * 150.
 	instance.damage *= hero.damageMultiplier
 	add_child(instance)
 	
