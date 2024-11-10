@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmmo5qovn0gj4"]
+[gd_scene load_steps=6 format=3 uid="uid://cmmo5qovn0gj4"]
 
 [ext_resource type="Texture2D" uid="uid://bva8acatby2n7" path="res://assets/textures/trak2_plate1a.png" id="1_0pkk4"]
 [ext_resource type="Script" path="res://scripts/ui/UnitPlacer.gd" id="1_f06rs"]
 [ext_resource type="PackedScene" uid="uid://fjyfhauwk0jy" path="res://scenes/entities/Hero.tscn" id="2_0inr3"]
 [ext_resource type="PackedScene" uid="uid://byanoedg063mw" path="res://scenes/ui/UnitScene.tscn" id="3_0krn8"]
+[ext_resource type="PackedScene" uid="uid://dkowwcaf4rkje" path="res://scenes/ui/PauseMenu.tscn" id="5_dsmon"]
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_f06rs")
+
+[node name="GameCamera" parent="." instance=ExtResource("2_fkmp0")]
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -29,13 +32,7 @@ color = Color(0.422883, 0.422883, 0.422883, 1)
 
 [node name="UnitScene" parent="CanvasLayer" instance=ExtResource("3_0krn8")]
 
-[node name="Button" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer/Control" index="0"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="1"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="0"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -64,7 +61,7 @@ text = "Lotta Money"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="2"]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="1"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -93,7 +90,7 @@ text = "Lotta Money"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="3"]
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer" index="2"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -209,16 +206,109 @@ text = "Lotta Money"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="Label2" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer3/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "10 units left"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer" index="1"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control"]
+z_index = -1
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer4/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "10 units left"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer" index="2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer5"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer5/Control"]
+z_index = -1
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer5/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Lotta Money"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer5/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "10 units left"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_dsmon")]
+visible = false
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Buildings" type="Node2D" parent="."]
 
 [node name="Units" type="Node2D" parent="."]
 
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer/Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer2/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer3/Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/MarginContainer4/Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer/Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer2/Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/MarginContainer3/Control/Button" to="." method="_on_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]
