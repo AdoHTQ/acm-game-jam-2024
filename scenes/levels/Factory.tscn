@@ -22,6 +22,7 @@ uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
 polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_m2753")]
+scale = Vector2(0.989287, 0.99081)
 position = Vector2(-960, -540)
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
