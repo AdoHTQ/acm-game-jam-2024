@@ -42,21 +42,36 @@ func _process(delta: float) -> void:
 				soundPlayer.play()
 				ResourceManager.spendResource(ResourceManager.ResourceNames.GEARS, instance.get_node("Cost").cost)
 				instance.get_node(instance.get_path() as String + "/Damageable").enabled = true
+				instance.enabled = true
 				match tmp:
+					Level.NONE:
+						var newCopy = instance.duplicate()
+						
+						add_child(newCopy)
+						if newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower"):
+							newCopy.get_node(newCopy.get_path() as String + "/ProjectileThrower").enabled = true
+						
 					Level.LOW:
 						lowBuildLeft -= 1
 						currentCounterLabel.text = str(lowBuildLeft) + " Left"
+						instance = null
+						isPlacing = false
 					Level.MED:
 						medBuildLeft -= 1
 						currentCounterLabel.text = str(medBuildLeft) + " Left"
 						engBays.append(instance)
+						instance = null
+						isPlacing = false
 					Level.HIGH:
 						highBuildLeft -= 1
 						currentCounterLabel.text = str(highBuildLeft) + " Left"
-				instance.enabled = true
+						instance = null
+						isPlacing = false
+
 				
-				isPlacing = false
-				instance = null
+				
+				
+				
 		else:
 			popup.dialog_text = "You don't have enough gears to make that! :P"
 			popup.title = "Not Enough Gears!"
@@ -140,6 +155,7 @@ func _on_light_gunner_button_pressed() -> void:
 	
 	add_child(instance)
 	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
+	instance.get_node(instance.get_path() as String + "/ProjectileThrower").enabled = false
 	
 func _on_heavy_melee_button_pressed() -> void:# The cheapest and worst genertor
 	tmp = Level.NONE
@@ -161,3 +177,4 @@ func _on_heavy_gunner_button_pressed() -> void:
 	
 	add_child(instance)
 	instance.get_node(instance.get_path() as String + "/Damageable").enabled = false
+	instance.get_node(instance.get_path() as String + "/ProjectileThrower").enabled = false
