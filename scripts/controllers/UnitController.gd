@@ -3,6 +3,8 @@ class_name UnitController extends Area2D
 @export var collisionShape: CollisionShape2D
 @export var cam: Camera2D
 
+var hero: Hero
+
 var inverseOffset: Vector2
 
 var isSelecting: bool
@@ -19,6 +21,7 @@ var selectedUnits: Array[Node2D]
 func _ready() -> void:
 	inverseOffset = Vector2(cam.offset.x, cam.offset.y)
 	body_shape_entered.connect(_body_shape_entered)
+	hero = get_node("/root/Factory/Hero")
 
 func _init() -> void:
 	topLeftCoords = Vector2(0, 0)
@@ -68,5 +71,15 @@ func _input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			# only check for the press so we don't get double commands
 			if event.pressed:
+				var dest: Vector2
+				var heroLock: bool
+				if abs(hero.position - (event.position / cam.zoom + cam.offset - inverseOffset / cam.zoom)).length() < hero.midArea.get_child(0).shape.radius:
+					dest = hero.position
+					heroLock = true
+				else:
+					dest = event.position / cam.zoom + cam.offset - inverseOffset / cam.zoom
+					heroLock = false
+					
 				for unit in selectedUnits:
-					unit.destination = event.position + cam.offset - inverseOffset
+					unit.destination = dest
+					unit.lock_hero(heroLock)
