@@ -22,9 +22,10 @@ uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
 polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_m2753")]
-scale = Vector2(0.989287, 0.99081)
+scale = Vector2(0.989287, 0.987901)
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
+moveSpeed = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -68,12 +69,15 @@ visible = false
 
 [node name="LightMelee" parent="Units" instance=ExtResource("7_0uwew")]
 position = Vector2(-500, 500)
+speedMultiplier = 100
 
 [node name="LightMelee2" parent="Units" instance=ExtResource("7_0uwew")]
 position = Vector2(250, -500)
+speedMultiplier = 100
 
 [node name="LightMelee3" parent="Units" instance=ExtResource("7_0uwew")]
 position = Vector2(500, 250)
+speedMultiplier = 100
 
 [node name="Buildings" type="Node2D" parent="."]
 

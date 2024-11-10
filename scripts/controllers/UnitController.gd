@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 				selectedUnits.clear()
 				bottomRightCoords = event.position / cam.zoom
 				position = ((topLeftCoords + bottomRightCoords) / 2 ) + cam.offset - inverseOffset / cam.zoom
-				(collisionShape.shape as RectangleShape2D).extents = (bottomRightCoords - topLeftCoords if bottomRightCoords > topLeftCoords else topLeftCoords - bottomRightCoords) / 2
+				(collisionShape.shape as RectangleShape2D).extents = (abs(bottomRightCoords - topLeftCoords)) / 2
 
 				isSelecting = false
 				startChecking = true
