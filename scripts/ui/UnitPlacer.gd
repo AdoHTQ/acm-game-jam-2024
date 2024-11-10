@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 			if not (instance.get_node(instance.get_path() as String + "/Damageable").get_overlapping_areas().size()):
 				match tmp:
 					Level.LOW:
+						instance.enabled = true
 						lowBuildLeft -= 1
 						currentCounterLabel.text = str(lowBuildLeft) + " Left"
 					Level.MED:
