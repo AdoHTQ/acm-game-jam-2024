@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cahmu8lq3hlnt"]
+[gd_scene load_steps=5 format=3 uid="uid://cahmu8lq3hlnt"]
 
 [ext_resource type="Script" path="res://scripts/entities/Unit.gd" id="1_egq1o"]
 [ext_resource type="Texture2D" uid="uid://djloghmdt6myx" path="res://icon.svg" id="2_lwxde"]
+[ext_resource type="Script" path="res://scripts/entities/Damageable.gd" id="3_jfrmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jplm"]
 size = Vector2(121, 119)
@@ -13,9 +14,16 @@ script = ExtResource("1_egq1o")
 unitPower = 1
 speedMultiplier = 100
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lwxde")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_0jplm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lwxde")
+[node name="Damageable" type="Area2D" parent="."]
+script = ExtResource("3_jfrmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_0jplm")

@@ -22,6 +22,7 @@ uv = PackedVector2Array(0, 256, 0, 0, 256, 0, 256, 256)
 polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_m2753")]
+position = Vector2(-960, -540)
 
 [node name="Hero" parent="." instance=ExtResource("2_aum5c")]
 
@@ -76,6 +77,7 @@ position = Vector2(500, 250)
 
 [node name="Buildings" type="Node2D" parent="."]
 
+[connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer/Units/HBoxContainer/Unit1/Control/Button" to="." method="_on_light_melee_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UnitScene/MarginContainer2/Units/HBoxContainer/Building1/Control/Button" to="." method="_on_low_building_button_pressed"]
 
 [editable path="CanvasLayer/UnitScene"]
